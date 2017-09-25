@@ -1,0 +1,31 @@
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Release\Test_web.exe
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Release\Test_web.pdb
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Release\Test_web.xml
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Release\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Release\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.Resources.resources
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.exe
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.xml
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Release\Test_web.pdb
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.exe
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.xml
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.pdb
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Release\Test_web.exe
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Release\Test_web.pdb
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Release\Test_web.xml
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Release\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Release\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.vbprojResolveAssemblyReference.cache
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.Resources.resources
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Release\Test_web.vbproj.GenerateResource.Cache

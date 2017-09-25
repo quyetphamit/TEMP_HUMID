@@ -1,0 +1,113 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Test_web
+</name>
+</assembly>
+<members>
+<member name="T:Test_web.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._123">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._1496841297_f_check_256">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._1496843635_f_cross_256">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._456">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._4561">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._4562">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._4563">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources._4564">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources.Capture">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="M:Test_web.Common.WaringConnect(System.String,System.Int32)">
+ <summary>
+ Cảnh báo không có kết nối
+ </summary>
+ <param name="time">Chuỗi thời gian đầu vào</param>
+ <param name="minute">Số phút giới hạn cảnh báo</param>
+ <returns>True nếu tới thời gian cảnh báo, False nếu chưa tới thời gian cảnh báo</returns>
+</member>
+<member name="M:Test_web.Common.IsEmail(System.String)">
+ <summary>
+ Check email
+ </summary>
+ <param name="email">Giá trị email cần check</param>
+ <returns>True nếu đó là emai, False nếu không phải là email</returns>
+</member>
+<member name="M:Test_web.Common.FindEmail(System.String)">
+ <summary>
+ Tìm kiếm email trong file text
+ </summary>
+ <param name="filePath">Đường dẫn lưu file</param>
+ <returns>List String email</returns>
+</member>
+<member name="M:Test_web.Common.GetNumber(System.String)">
+ <summary>
+ Lấy phần số trong 1 chuỗi
+ </summary>
+ <param name="value">Chuỗi đầu vào</param>
+ <returns>Trả về trống nếu chuỗi có kí tự older, ngược lại trả về số</returns>
+</member>
+<member name="M:Test_web.Common.Search(System.String,System.String)">
+ <summary>
+ Tìm kết quả dựa vào từ khóa
+ </summary>
+ <param name="filePath"></param>
+ <param name="keyword">Từ khóa</param>
+ <returns></returns>
+</member>
+<member name="M:Test_web.frmMain.SaveState(System.Int32)">
+ <summary>
+ Lưu lại giá trị của cột No trong CSV file, STT của file name CSV
+ </summary>
+</member>
+</members>
+</doc>

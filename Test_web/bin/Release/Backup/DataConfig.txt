@@ -1,0 +1,11 @@
+﻿#1. UMC Standard
+#2. Temp (Nhiet do - Do C)
+15-29
+#3. Humid (Do am - %)
+40-70
+#4. List mail auto send
+quyetphamit@gmail.com
+neverdie000000@gmail.com
+sonvv@umcvn.com
+
+

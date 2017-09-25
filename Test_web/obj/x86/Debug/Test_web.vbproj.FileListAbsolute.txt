@@ -1,0 +1,163 @@
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\bin\Debug\Test_web.exe
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\bin\Debug\Test_web.pdb
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\bin\Debug\Test_web.xml
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\obj\x86\Debug\Test_web.Form1.resources
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\obj\x86\Debug\Test_web.Resources.resources
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\obj\x86\Debug\Test_web.exe
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\obj\x86\Debug\Test_web.xml
+C:\Users\u00450\AppData\Local\Temporary Projects\Test_web\obj\x86\Debug\Test_web.pdb
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\bin\Debug\Test_web.exe
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\bin\Debug\Test_web.pdb
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\bin\Debug\Test_web.xml
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.Form1.resources
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.Resources.resources
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.exe
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.xml
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.pdb
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\bin\Debug\Interop.WMPLib.dll
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+C:\Users\u00450\documents\visual studio 2010\Projects\Test_web\Test_web\obj\x86\Debug\AxInterop.Microsoft.Office.Interop.Outlook.dll
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\bin\Debug\AxInterop.Microsoft.Office.Interop.Outlook.dll
+C:\Users\u00450\Documents\Visual Studio 2010\Projects\Test_web\Test_web\bin\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+F:\Test_web\Test_web\bin\Debug\Test_web.exe
+F:\Test_web\Test_web\bin\Debug\Test_web.pdb
+F:\Test_web\Test_web\bin\Debug\Test_web.xml
+F:\Test_web\Test_web\bin\Debug\Interop.WMPLib.dll
+F:\Test_web\Test_web\bin\Debug\AxInterop.Microsoft.Office.Interop.Outlook.dll
+F:\Test_web\Test_web\bin\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+F:\Test_web\Test_web\bin\Debug\AxInterop.WMPLib.dll
+F:\Test_web\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+F:\Test_web\Test_web\obj\x86\Debug\AxInterop.Microsoft.Office.Interop.Outlook.dll
+F:\Test_web\Test_web\obj\x86\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+F:\Test_web\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.Resources.resources
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.exe
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.xml
+F:\Test_web\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\Test_web\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\Test_web\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\Test_web\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web\Test_web\bin\Debug\AxInterop.Microsoft.Office.Interop.Outlook.dll
+D:\Quyet\Test_web\Test_web\bin\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+D:\Quyet\Test_web\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\AxInterop.Microsoft.Office.Interop.Outlook.dll
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\AxInterop.Microsoft.Office.Interop.OutlookViewCtl.dll
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver1.0\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\Test_web_ver1.0\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver1.0\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\Test_web_ver1.0\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver1.0\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web_ver1.0\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web_ver1.1\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1002\Test_web\obj\x86\Debug\Test_web.vbprojResolveAssemblyReference.cache
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1003\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1003\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1003\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1003\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1003\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\Test_web_ver 1003\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web_ver 1004\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1004\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1004\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver 1004\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1004\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1004\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1005\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1005\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1005\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1005\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1005\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\Test_web_ver 1005\Test_web\obj\x86\Debug\Test_web.vbprojResolveAssemblyReference.cache
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache

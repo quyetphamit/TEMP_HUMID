@@ -1,0 +1,15 @@
+﻿#1. UMC Standard
+#2. Temp (Nhiet do - Do C)
+15-29
+#3. Humid (Do am - %)
+40-70
+#5. Time Reload Website
+100000
+#6. Time auto create log
+600000
+#7. Time Reset Log
+18:00:00
+#8. List mail auto send
+quyetphamit@gmail.com
+abc@gmail.com
+
