@@ -1117,6 +1117,8 @@ Public Class frmMain
                 waringConnect.Append(String.Format("<h4>{0}</h4>", item))
 
             Next
+            waringConnect.Append("<h3>Chi tiết xem tại</h3>")
+            waringConnect.Append("http://172.28.13.2:9999/")
             waringConnect.Append("
                 <h5>Thanks and Best Regards!</h5>
                             <h5>--------------------------------</h5>

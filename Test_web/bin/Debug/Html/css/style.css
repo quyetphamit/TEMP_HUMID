@@ -559,3 +559,6 @@ header h1 {
   -moz-animation: none;
   animation: none;
 }
+.cd-more-info.cd-top{
+  background: #F2F2F2;
+}

@@ -28,6 +28,8 @@ jQuery(document).ready(function($){
 			selected.addClass('is-open').siblings('.cd-single-point.is-open');
 		}
 	});
+	$('p.office').replaceWith("<hr><h3>Standar</h3><p>Temp:&nbsp;<span>15&#8451;&nbsp;-&nbsp;29&#8451;</span></p><p>Humid:&nbsp;<span>40&#37;&nbsp;-&nbsp;70&#37;</span></p>");
+	$('p.print').replaceWith("<hr><h3>Standar</h3><p>Temp:&nbsp;<span>22&#8451;&nbsp;-&nbsp;28&#8451;</span></p><p>Humid:&nbsp;<span>40&#37;&nbsp;-&nbsp;60&#37;</span></p>");
 
 	// $('#btn-on').click(function(event) {
 	// 	event.preventDefault();
