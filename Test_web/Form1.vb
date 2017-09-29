@@ -514,7 +514,7 @@ Public Class frmMain
                     emailContent.Append(content)
                     emailContent.Append("</table>")
                     emailContent.Append("<h3>Chi tiết xem tại</h3>")
-                    emailContent.Append("http://172.28.13.2:9999/")
+                    emailContent.Append("http://172.28.5.203:9999/")
                     emailContent.Append("<h5>Thanks and Best Regards!</h5>
                             <h5>--------------------------------</h5>
                             <h5>LCA - VN</h5>
@@ -1118,7 +1118,7 @@ Public Class frmMain
 
             Next
             waringConnect.Append("<h3>Chi tiết xem tại</h3>")
-            waringConnect.Append("http://172.28.13.2:9999/")
+            waringConnect.Append("http://172.28.5.203:9999/")
             waringConnect.Append("
                 <h5>Thanks and Best Regards!</h5>
                             <h5>--------------------------------</h5>
