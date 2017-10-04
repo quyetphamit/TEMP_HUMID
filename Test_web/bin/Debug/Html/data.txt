@@ -1,28 +1,30 @@
 ﻿#1. MC standar, temp, humid, connection
-True,23.4,54,False
+True,24.2,58,False
 #2. PC standar, temp, humid, connection
-True,25.9,58,False
+True,23.5,62,False
 #3. PD1-SMT standar, temp, humid, connection
-True,25.9,48,False
+True,25.1,48,False
 #4. MC2 standar, temp, humid, connection
-True,24.7,53,False
+True,24.3,61,False
 #5. PC2 standar, temp, humid, connection
-True,24.7,55,False
+True,23.7,60,False
 #6. PD2-SMT standar, temp, humid, connection
-True,25.6,52,False
+True,24.2,52,False
 #7. PD2-PU1-1 standar, temp, humid, connection
-True,26.1,50,False
+True,23.5,55,False
 #8. PD2-PU1-2 standar, temp, humid, connection
-True,26,52,False
+True,24.5,63,False
 #9. PD1-FAT-1 standar, temp, humid, connection
-True,24.4,53,False
+True,23.6,59,False
 #10. PD1-FAT-2 standar, temp, humid, connection
-True,24.6,52,False
+True,23.7,63,False
 #11. PD1-SPOT standar, temp, humid, connection
-True,23.2,58,False
+True,25.9,54,False
 #12. PD1-PRINT-1 standar, temp, humid, connection
-True,26.9,46,False
+True,27.2,43,False
 #13. PD1-PRINT-2 standar, temp, humid, connection
-False,25.8,37,False
+True,25.1,40,False
 #14. PD1-PRINT-3 standar, temp, humid, connection
-True,26.8,49,False
+True,25.4,45,False
+#15. PC1_2 standar, temp, humid, connection
+True,25.7,63,False

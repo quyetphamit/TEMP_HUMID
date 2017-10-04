@@ -231,6 +231,11 @@ header h1 {
   top: 25%;
   right: 9%;
 }
+/*PC1_2*/
+.cd-single-point:nth-of-type(15) {
+  top: 64%;
+  right: 43%;
+}
 .cd-single-point.is-open > a {
   background-color: #d95353;
 

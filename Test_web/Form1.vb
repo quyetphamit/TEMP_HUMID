@@ -102,6 +102,9 @@ Public Class frmMain
                     lblPd1Print3Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_3"))._temp & " C"
                     lblPd1Print3Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_3"))._humid & " %"
 
+                    lblPc12Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC1_2"))._temp & " C"
+                    lblPC12Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC1_2"))._humid & " %"
+
                 Catch ex As Exception
                     MessageBox.Show("Bạn đã thay đổi thông tin trên website", "Liên hệ Quyết LCA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Close()
@@ -134,6 +137,8 @@ Public Class frmMain
                 Temp(13) = Microsoft.VisualBasic.Left(lblPd1Print2Temp.Text, 4)
                 'temp of PD1_PRINT_3
                 Temp(14) = Microsoft.VisualBasic.Left(lblPd1Print3Temp.Text, 4)
+                ' temp of PC1_2
+                Temp(15) = Microsoft.VisualBasic.Left(lblPc12Temp.Text, 4)
 
                 humd(1) = Mid(lblMc1Humid.Text, 1, 3)
                 humd(2) = Mid(lblPc1Humid.Text, 1, 3)
@@ -149,6 +154,7 @@ Public Class frmMain
                 humd(12) = Mid(lblPd1Print1Humid.Text, 1, 3)
                 humd(13) = Mid(lblPd1Print2Humid.Text, 1, 3)
                 humd(14) = Mid(lblPd1Print3Humid.Text, 1, 3)
+                humd(15) = Mid(lblPC12Humid.Text, 1, 3)
 
             Else
                 login()
@@ -181,6 +187,7 @@ Public Class frmMain
         If lstObjLog.Count = 0 Then
             no = 1
         End If
+        ' Sau 30p alarm 1 lan
         If COUNT_ALARM = 18 Then
             COUNT_ALARM = 0
         End If
@@ -341,6 +348,17 @@ Public Class frmMain
             flag(14) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
+        lblPc12Temp.ForeColor = If(Temp(15) >= tempMin And Temp(15) <= tempMax, Color.Blue, Color.Red)
+        lblPC12Humid.ForeColor = If(humd(15) >= humidMin And humd(15) <= humidMax, Color.Blue, Color.Red)
+
+        If lblPc12Temp.ForeColor = Color.Blue And lblPC12Humid.ForeColor = Color.Blue Then
+            PictureBox17.Image = Image.FromFile("OK.jpg")
+            flag(15) = True
+        Else
+            PictureBox17.Image = Image.FromFile("NG.jpg")
+            flag(15) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
         'Label36.Text = alarm_again
         If flag(1) = False Or flag(2) = False Or flag(3) = False Or flag(4) = False Or flag(5) = False Or flag(6) = False Or flag(7) = False Or flag(8) = False Or flag(9) = False Or flag(10) = False Or flag(11) = False Then
             Label35.ForeColor = Color.Red
@@ -429,6 +447,11 @@ Public Class frmMain
                 '    lstObjLog.Add(objLog)
                 '    no = no + 1
                 'End If
+                If flag(15) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblPc12.Text, lblPc12Temp.Text, lblPC12Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
                 'quyet
                 Dim content As StringBuilder = New StringBuilder
                 For Each obj In lstObjLog
@@ -853,7 +876,7 @@ Public Class frmMain
             End Try
         End If
         '**********************************************************************************************************************
-        'PD1_PRINT_2
+        'PD1_PRINT_3
         Dim csvFilePd1Print3bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Print3.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Print3bk) = False Then
             File.Create(csvFilePd1Print3bk).Dispose()
@@ -874,6 +897,27 @@ Public Class frmMain
             End Try
         End If
         '**********************************************************************************************************************
+        'PC12
+        Dim csvFilePc12bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPc12.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFilePc12bk) = False Then
+            File.Create(csvFilePc12bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePc12bk, True)
+            outFile.WriteLine("Area name:," & lblPc12.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFilePc12bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePc12bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPc12Temp.Text & "," & lblPC12Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+        '**********************************************************************************************************************
         Dim csvFileMC As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblMc1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
         Dim csvFilePC As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPc1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
         Dim csvFilePd2Smt As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd2Smt.Text & "_" & Now.ToString("yyyyMM") & ".csv"
@@ -888,6 +932,7 @@ Public Class frmMain
         Dim csvFilePd1Print1 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Print1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
         Dim csvFilePd1Print2 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Print2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
         Dim csvFilePd1Print3 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Print3.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePc12 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPc12.Text & "_" & Now.ToString("yyyyMM") & ".csv"
         'Check file
         If Common.CompareFiles(csvFileMC, csvFileMCbk) = False Then
             Try
@@ -996,6 +1041,13 @@ Public Class frmMain
         If Common.CompareFiles(csvFilePd1Print3, csvFilePd1Print3bk) = False Then
             Try
                 File.Copy(csvFilePd1Print3bk, csvFilePd1Print3, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        If Common.CompareFiles(csvFilePc12, csvFilePc12bk) = False Then
+            Try
+                File.Copy(csvFilePc12bk, csvFilePc12, True)
             Catch ex As Exception
                 ' Hiển thị thông báo trong trường hợp file đang mở
             End Try
@@ -1177,6 +1229,8 @@ Public Class frmMain
         stream.WriteLine(flag(13) & "," & Temp(13) & "," & humd(13) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_2"))._time, TIMEOUT))
         stream.WriteLine("#14. PD1-PRINT-3 standar, temp, humid, connection")
         stream.WriteLine(flag(14) & "," & Temp(14) & "," & humd(14) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_3"))._time, TIMEOUT))
+        stream.WriteLine("#15. PC1_2 standar, temp, humid, connection")
+        stream.WriteLine(flag(15) & "," & Temp(15) & "," & humd(15) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PC1_2"))._time, TIMEOUT))
         stream.Close()
     End Sub
 End Class
