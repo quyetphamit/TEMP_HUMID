@@ -360,7 +360,7 @@ Public Class frmMain
         End If
         '---------------------------------------------------------------------------------------------------------------
         'Label36.Text = alarm_again
-        If flag(1) = False Or flag(2) = False Or flag(3) = False Or flag(4) = False Or flag(5) = False Or flag(6) = False Or flag(7) = False Or flag(8) = False Or flag(9) = False Or flag(10) = False Or flag(11) = False Then
+        If flag(1) = False Or flag(2) = False Or flag(3) = False Or flag(4) = False Or flag(5) = False Or flag(6) = False Or flag(7) = False Or flag(8) = False Or flag(9) = False Or flag(10) = False Or flag(11) = False Or flag(15) = False Then
             Label35.ForeColor = Color.Red
             Label35.Text = "Alarm"
             Timer2.Enabled = True

@@ -161,4 +161,3 @@ D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.frmMain.
 D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
 D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.Resources.resources
 D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
-D:\Quyet\TempAndHumid\Test_web_ver 1006\Test_web\obj\x86\Debug\Test_web.vbprojResolveAssemblyReference.cache
