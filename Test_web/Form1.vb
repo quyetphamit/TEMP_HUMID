@@ -41,19 +41,19 @@ Public Class frmMain
 
                 element = WebBrowser1.Document.GetElementsByTagName("td")
                 For Each item As HtmlElement In element
-                    If item.GetAttribute("classname") = "upper" And item.OuterText <> "" And item.OuterText <> "UMC" Then
-                        lsts.Add(item.OuterText)
+                    If item.GetAttribute("classname") = "upper" And item.OuterText <> "UMC" Then
+                        lsts.Add(item.OuterHtml)
                     End If
                 Next
-                Dim temp1 = lsts.GetRange(1, 3)
+                'Dim temp1 = lsts.GetRange(1, 3)
                 listArea = New List(Of ObjLog)
                 While lsts.Count > 0
 
                     tempArea = lsts.GetRange(0, 3)
-                    Dim area = Common.getBetween(tempArea(0), "", " ")
-                    Dim temp = Common.getBetween(tempArea(2), "[Temp]", "c").Trim
+                    Dim area = Common.getBetween(tempArea(0), ">", " <IMG")
+                    Dim temp = Common.getBetween(tempArea(2), "[Temp]", "C").Trim
                     Dim humid = Common.getBetween(tempArea(2), "[Humid]", "%").Trim
-                    Dim time = tempArea(1)
+                    Dim time = Common.GetTime(Common.getBetween(tempArea(1), "<br />", "')").Trim)
                     Dim objArea As ObjLog = New ObjLog(area, temp, humid, time)
 
                     listArea.Add(objArea)
@@ -90,8 +90,8 @@ Public Class frmMain
                     lblPd1Fat2Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_2"))._temp & " C"
                     lblPd1Fat2Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_2"))._humid & " %"
 
-                    lblPd1SpotTemp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT"))._temp & " C"
-                    lblPd1SpotHumid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT"))._humid & " %"
+                    lblPd1SpotTemp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT WEDING"))._temp & " C"
+                    lblPd1SpotHumid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT WEDING"))._humid & " %"
 
                     lblPd1Print1Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_1"))._temp & " C"
                     lblPd1Print1Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_1"))._humid & " %"
@@ -1149,7 +1149,7 @@ Public Class frmMain
         Dim lstTime As List(Of String) = New List(Of String)
         ' Mất kết nối 30p thì gửi mail cảnh báo
         For Each item In listArea
-            If Common.WaringConnect(item._time, 30) Then
+            If Common.WaringConnect(item._time, 59) Then
                 lstTime.Add("Connection warnings in area " & item._area & " (" & "<span style='color: Red'>" & item._time.ToLower() & "</span>" & ")")
                 lstTime.Add("Mất kết nối ở khu vực " & item._area & " (" & "<span style='color: Red'>" & Common.GetNumber(item._time) & Common.Translate(item._time) & "</span>" & ")")
                 lstTime.Add("<hr>")
@@ -1197,7 +1197,6 @@ Public Class frmMain
 
     Private Sub WriteLogHtml()
         ' quyetpham add 23/9
-        Console.WriteLine(Now.ToString("HH:mm:ss"))
         Dim stream As StreamWriter
         Dim pathLog As String = Environment.CurrentDirectory & "\Html\data.txt"
         stream = My.Computer.FileSystem.OpenTextFileWriter(pathLog, False)
@@ -1222,7 +1221,7 @@ Public Class frmMain
         stream.WriteLine("#10. PD1-FAT-2 standar, temp, humid, connection")
         stream.WriteLine(flag(10) & "," & Temp(10) & "," & humd(10) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_2"))._time, TIMEOUT))
         stream.WriteLine("#11. PD1-SPOT standar, temp, humid, connection")
-        stream.WriteLine(flag(11) & "," & Temp(11) & "," & humd(11) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT"))._time, TIMEOUT))
+        stream.WriteLine(flag(11) & "," & Temp(11) & "," & humd(11) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT WEDING"))._time, TIMEOUT))
         stream.WriteLine("#12. PD1-PRINT-1 standar, temp, humid, connection")
         stream.WriteLine(flag(12) & "," & Temp(12) & "," & humd(12) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_1"))._time, TIMEOUT))
         stream.WriteLine("#13. PD1-PRINT-2 standar, temp, humid, connection")

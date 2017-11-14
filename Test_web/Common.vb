@@ -268,4 +268,20 @@ Public Class Common
         Next
         Return result
     End Function
+    Shared Function GetTime(ByVal input As String) As String
+        Dim result As String = String.Empty
+        Dim now As DateTime = DateTime.Now
+        Dim time As DateTime = Convert.ToDateTime(input)
+        Dim total As Double = (now - time).TotalSeconds
+        If total < 60 Then
+            result = "0 minute(s) ago"
+        ElseIf total < 3600 Then
+            result = String.Format("{0} minute(s) ago", Math.Round(total / 60, 0))
+        ElseIf total < 86400 Then
+            result = String.Format("{0} hour(s) ago", Math.Round(total / 3600, 0))
+        Else
+            result = "older data"
+        End If
+        Return result
+    End Function
 End Class
