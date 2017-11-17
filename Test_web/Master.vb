@@ -2,10 +2,6 @@
 Imports System.Threading
 
 Public Class frmMaster
-    Dim tempMin
-    Dim tempMax
-    Dim humidMin
-    Dim humidMax
     Dim tempMinNew As Integer
     Dim tempMaxNew As Integer
     Dim humidMinNew As Integer
@@ -15,29 +11,29 @@ Public Class frmMaster
     Dim tempMaxView As String
     Dim hudmidMinView As String
     Dim hudmidMaxView As String
-    Dim filePath As String = My.Application.Info.DirectoryPath & "\Setup\DataConfig.txt"
+    Dim pathEmail As String = My.Application.Info.DirectoryPath & "\Setup\ListEmail.txt"
+    Dim pathConfig As String = My.Application.Info.DirectoryPath & "\Setup\config.xml"
+    Dim setting As SystemSetting
     Private Sub frmMaster_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim filePath As String = My.Application.Info.DirectoryPath & "\Setup\DataConfig.txt"
-        'Doc du lieu ve nhiet do
-        Dim temp As String = Common.ReadTextFile(filePath, 3).Trim()
-        Dim lstEmail As List(Of String) = Common.FindEmail(filePath)
-        tempMin = Microsoft.VisualBasic.Left(temp, 2)
-        tempMax = Microsoft.VisualBasic.Right(temp, 2)
-        'Set temp to label
-        txtTempMin.Text = tempMin
-        txtTempMax.Text = tempMax
+        LoadComponent()
+    End Sub
+    Private Sub LoadComponent()
+        If Not File.Exists(pathConfig) Then Common.SaveInitSystem(setting, pathConfig)
+        SystemSetting.ReadXML(Of SystemSetting)(setting, pathConfig)
+        txtTempMin.Text = setting._tempMin
+        txtTempMax.Text = setting._tempMax
+        txtHumidMin.Text = setting._humidMin
+        txtHumidMax.Text = setting._humidMax
+        txtDaily.Text = setting._resetLog
+        txtMp3.Text = setting._mp3
+        nReloadWeb.Value = setting._reloadWebInterval / 1000
+        nCreateLog.Value = setting._createLogInterval / 1000
+        nConnection.Value = setting._connectionWarning + 1
+        Dim lstEmail As List(Of String) = Common.FindEmail(pathEmail)
         For Each email In lstEmail
             rtbEmail.Text &= email & vbCrLf
         Next
-        'Doc du lieu ve do am
-        Dim humid As String = Common.ReadTextFile(filePath, 5).Trim()
-        humidMin = Microsoft.VisualBasic.Left(humid, 2)
-        humidMax = Microsoft.VisualBasic.Right(humid, 2)
-        txtHumidMin.Text = humidMin
-        txtHumidMax.Text = humidMax
-        txtReload.Text = Common.ReadTextFile(filePath, 7)
-        txtCreateLog.Text = Common.ReadTextFile(filePath, 9)
-        txtDaily.Text = Common.ReadTextFile(filePath, 11)
+        WebBrowser1.DocumentText = "<h2 style='color: red; text-align: Top'><marquee>Contact: quyetphamit@gmail.com/ 0972089889</marquee></h2>"
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'Validate
@@ -50,33 +46,27 @@ Public Class frmMaster
         ElseIf humidMinNew >= humidMaxNew Then
             MessageBox.Show("Khoảng độ ẩm không hợp lệ!", "Erros", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
+        ElseIf Not Common.IsTime(txtDaily.Text) Then
+            MessageBox.Show("Thời gian reset log sai định dạng!", "Erros", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return
         End If
         'Save data
         Try
-            Dim filePath As String = My.Application.Info.DirectoryPath & "\Setup\DataConfig.txt"
-            Dim outFile As IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(filePath, False)
-            outFile.WriteLine("#1. UMC Standard")
-            outFile.WriteLine("#2. Temp (Nhiet do - Do C)")
-            outFile.WriteLine(tempMinNew & "-" & tempMaxNew)
-            outFile.WriteLine("#3. Humid (Do am - %)")
-            outFile.WriteLine(humidMinNew & "-" & humidMaxNew)
-            outFile.WriteLine("#5. Time Reload Website")
-            outFile.WriteLine(txtReload.Text)
-            outFile.WriteLine("#6. Time auto create log")
-            outFile.WriteLine(txtCreateLog.Text)
-            outFile.WriteLine("#7. Time Reset Log")
-            outFile.WriteLine(txtDaily.Text)
-            outFile.WriteLine("#8. List mail auto send")
+            setting._tempMin = tempMinNew
+            setting._tempMax = tempMaxNew
+            setting._humidMin = humidMinNew
+            setting._humidMax = humidMaxNew
+            setting._reloadWebInterval = nReloadWeb.Value * 1000
+            setting._resetLog = txtDaily.Text
+            setting._connectionWarning = nConnection.Value - 1
+            setting._createLogInterval = nCreateLog.Value * 1000
+            setting._mp3 = txtMp3.Text
+            SystemSetting.WriteXML(Of SystemSetting)(setting, pathConfig)
+            Dim outFile As IO.StreamWriter = My.Computer.FileSystem.OpenTextFileWriter(pathEmail, False)
             For Each mail In rtbEmail.Lines
                 outFile.WriteLine(mail)
             Next
             outFile.Close()
-            'If File.Exists("D:\view.html") = True Then
-            '    File.Delete("D:\view.html")
-            'End If
-            Dim tempRange = Microsoft.VisualBasic.Left(Common.ReadTextFile(filePath, 3), 2) & "C - " & Microsoft.VisualBasic.Right(Common.ReadTextFile(filePath, 3), 2) & " C"
-            Dim humidRange = Microsoft.VisualBasic.Left(Common.ReadTextFile(filePath, 5), 2) & "% - " & Microsoft.VisualBasic.Right(Common.ReadTextFile(filePath, 5), 2) & "%"
-            'Common.CreateHtml("D:\view.html", tempRange, humidRange, Nothing)
             Close()
             My.Forms.frmMaster.Close()
             My.Forms.frmMain.Close()
@@ -140,12 +130,12 @@ Public Class frmMaster
         lblHumidView.Text = hudmidMinView & " % - " & hudmidMaxView & " %"
     End Sub
 
-    'Private Sub frmMaster_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-    '    If File.Exists("D:\view.html") = True Then
-    '        File.Delete("D:\view.html")
-    '    End If
-    '    Dim tempRange = Microsoft.VisualBasic.Left(Common.ReadTextFile(filePath, 3), 2) & "C - " & Microsoft.VisualBasic.Right(Common.ReadTextFile(filePath, 3), 2) & " C"
-    '    Dim humidRange = Microsoft.VisualBasic.Left(Common.ReadTextFile(filePath, 5), 2) & "% - " & Microsoft.VisualBasic.Right(Common.ReadTextFile(filePath, 5), 2) & "%"
-    '    Common.CreateHtml("D:\view.html", tempRange, humidRange, Nothing)
-    'End Sub
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim odf As OpenFileDialog = New OpenFileDialog
+        odf.Title = "Select mp3 file"
+        odf.Filter = "All file (*mp3)|*.mp3"
+        If odf.ShowDialog() = DialogResult.OK Then
+            txtMp3.Text = odf.FileName
+        End If
+    End Sub
 End Class

@@ -25,21 +25,16 @@ Partial Class frmMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.PictureBox16 = New System.Windows.Forms.PictureBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Label35 = New System.Windows.Forms.Label()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.WebBrowser2 = New System.Windows.Forms.WebBrowser()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.lblDateVN = New System.Windows.Forms.Label()
         Me.txtPass = New System.Windows.Forms.TextBox()
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Label26 = New System.Windows.Forms.Label()
@@ -139,6 +134,11 @@ Partial Class frmMain
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.lblPc12 = New System.Windows.Forms.Label()
         Me.PictureBox17 = New System.Windows.Forms.PictureBox()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.GroupBox6.SuspendLayout()
@@ -176,6 +176,7 @@ Partial Class frmMain
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -185,20 +186,12 @@ Partial Class frmMain
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 100000
         '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(1240, 580)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(187, 96)
-        Me.RichTextBox1.TabIndex = 4
-        Me.RichTextBox1.Text = ""
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(311, 9)
+        Me.Label3.Location = New System.Drawing.Point(311, 23)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(734, 55)
         Me.Label3.TabIndex = 5
@@ -206,10 +199,10 @@ Partial Class frmMain
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.Location = New System.Drawing.Point(1242, 428)
+        Me.WebBrowser1.Location = New System.Drawing.Point(3, 702)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(188, 146)
+        Me.WebBrowser1.Size = New System.Drawing.Size(596, 146)
         Me.WebBrowser1.TabIndex = 2
         Me.WebBrowser1.Url = New System.Uri("https://www.webstorage-service.com/system/", System.UriKind.Absolute)
         '
@@ -233,36 +226,6 @@ Partial Class frmMain
         Me.PictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox16.TabIndex = 0
         Me.PictureBox16.TabStop = False
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label32.Location = New System.Drawing.Point(1002, 680)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(62, 24)
-        Me.Label32.TabIndex = 15
-        Me.Label32.Text = "Login:"
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(1068, 684)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(102, 20)
-        Me.Label33.TabIndex = 15
-        Me.Label33.Text = "ID: tdgd9370"
-        '
-        'Label34
-        '
-        Me.Label34.AutoSize = True
-        Me.Label34.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label34.Location = New System.Drawing.Point(1006, 709)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(175, 20)
-        Me.Label34.TabIndex = 15
-        Me.Label34.Text = "Password: cuongadn90"
         '
         'GroupBox8
         '
@@ -315,20 +278,10 @@ Partial Class frmMain
         Me.Timer3.Enabled = True
         Me.Timer3.Interval = 1000
         '
-        'lblDateVN
-        '
-        Me.lblDateVN.AutoSize = True
-        Me.lblDateVN.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateVN.Location = New System.Drawing.Point(1050, 65)
-        Me.lblDateVN.Name = "lblDateVN"
-        Me.lblDateVN.Size = New System.Drawing.Size(102, 29)
-        Me.lblDateVN.TabIndex = 18
-        Me.lblDateVN.Text = "Date VN"
-        '
         'txtPass
         '
         Me.txtPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPass.Location = New System.Drawing.Point(769, 679)
+        Me.txtPass.Location = New System.Drawing.Point(753, 683)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPass.Size = New System.Drawing.Size(132, 29)
@@ -344,17 +297,17 @@ Partial Class frmMain
         Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.Location = New System.Drawing.Point(655, 684)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(87, 24)
+        Me.Label26.Size = New System.Drawing.Size(92, 24)
         Me.Label26.TabIndex = 24
-        Me.Label26.Text = "Setup file"
+        Me.Label26.Text = "Password"
         '
         'lblDateJp
         '
         Me.lblDateJp.AutoSize = True
-        Me.lblDateJp.Font = New System.Drawing.Font("Meiryo", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateJp.Location = New System.Drawing.Point(1137, 93)
+        Me.lblDateJp.Font = New System.Drawing.Font("Meiryo", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDateJp.Location = New System.Drawing.Point(1042, 78)
         Me.lblDateJp.Name = "lblDateJp"
-        Me.lblDateJp.Size = New System.Drawing.Size(66, 24)
+        Me.lblDateJp.Size = New System.Drawing.Size(88, 31)
         Me.lblDateJp.TabIndex = 25
         Me.lblDateJp.Text = "date JP"
         '
@@ -445,11 +398,10 @@ Partial Class frmMain
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 5.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1255, 307)
         Me.TableLayoutPanel2.TabIndex = 26
         '
@@ -458,10 +410,10 @@ Partial Class frmMain
         Me.Label15.AutoSize = True
         Me.Label15.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label15.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label15.Location = New System.Drawing.Point(1107, 144)
+        Me.Label15.Location = New System.Drawing.Point(1107, 150)
         Me.Label15.Margin = New System.Windows.Forms.Padding(0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(145, 15)
+        Me.Label15.Size = New System.Drawing.Size(145, 5)
         Me.Label15.TabIndex = 79
         '
         'Label14
@@ -469,10 +421,10 @@ Partial Class frmMain
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label14.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label14.Location = New System.Drawing.Point(964, 144)
+        Me.Label14.Location = New System.Drawing.Point(964, 150)
         Me.Label14.Margin = New System.Windows.Forms.Padding(0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(140, 15)
+        Me.Label14.Size = New System.Drawing.Size(140, 5)
         Me.Label14.TabIndex = 78
         '
         'Label13
@@ -480,10 +432,10 @@ Partial Class frmMain
         Me.Label13.AutoSize = True
         Me.Label13.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label13.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label13.Location = New System.Drawing.Point(821, 144)
+        Me.Label13.Location = New System.Drawing.Point(821, 150)
         Me.Label13.Margin = New System.Windows.Forms.Padding(0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(140, 15)
+        Me.Label13.Size = New System.Drawing.Size(140, 5)
         Me.Label13.TabIndex = 77
         '
         'Label12
@@ -491,10 +443,10 @@ Partial Class frmMain
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label12.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label12.Location = New System.Drawing.Point(678, 144)
+        Me.Label12.Location = New System.Drawing.Point(678, 150)
         Me.Label12.Margin = New System.Windows.Forms.Padding(0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(140, 15)
+        Me.Label12.Size = New System.Drawing.Size(140, 5)
         Me.Label12.TabIndex = 76
         '
         'Label7
@@ -502,10 +454,10 @@ Partial Class frmMain
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Location = New System.Drawing.Point(535, 144)
+        Me.Label7.Location = New System.Drawing.Point(535, 150)
         Me.Label7.Margin = New System.Windows.Forms.Padding(0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(140, 15)
+        Me.Label7.Size = New System.Drawing.Size(140, 5)
         Me.Label7.TabIndex = 75
         '
         'Label6
@@ -513,10 +465,10 @@ Partial Class frmMain
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Location = New System.Drawing.Point(392, 144)
+        Me.Label6.Location = New System.Drawing.Point(392, 150)
         Me.Label6.Margin = New System.Windows.Forms.Padding(0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(140, 15)
+        Me.Label6.Size = New System.Drawing.Size(140, 5)
         Me.Label6.TabIndex = 74
         '
         'Label5
@@ -524,10 +476,10 @@ Partial Class frmMain
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Location = New System.Drawing.Point(249, 144)
+        Me.Label5.Location = New System.Drawing.Point(249, 150)
         Me.Label5.Margin = New System.Windows.Forms.Padding(0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(140, 15)
+        Me.Label5.Size = New System.Drawing.Size(140, 5)
         Me.Label5.TabIndex = 73
         '
         'Label4
@@ -535,10 +487,10 @@ Partial Class frmMain
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Location = New System.Drawing.Point(106, 144)
+        Me.Label4.Location = New System.Drawing.Point(106, 150)
         Me.Label4.Margin = New System.Windows.Forms.Padding(0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(140, 15)
+        Me.Label4.Size = New System.Drawing.Size(140, 5)
         Me.Label4.TabIndex = 72
         '
         'TableLayoutPanel10
@@ -553,7 +505,7 @@ Partial Class frmMain
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
         Me.TableLayoutPanel10.RowCount = 1
         Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel10.TabIndex = 70
         '
         'lblPd2Smt
@@ -563,7 +515,7 @@ Partial Class frmMain
         Me.lblPd2Smt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPd2Smt.Location = New System.Drawing.Point(3, 0)
         Me.lblPd2Smt.Name = "lblPd2Smt"
-        Me.lblPd2Smt.Size = New System.Drawing.Size(87, 38)
+        Me.lblPd2Smt.Size = New System.Drawing.Size(87, 40)
         Me.lblPd2Smt.TabIndex = 0
         Me.lblPd2Smt.Text = "PD2-SMT"
         Me.lblPd2Smt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -624,7 +576,7 @@ Partial Class frmMain
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel4.TabIndex = 64
         '
         'lblMc2
@@ -634,7 +586,7 @@ Partial Class frmMain
         Me.lblMc2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMc2.Location = New System.Drawing.Point(3, 0)
         Me.lblMc2.Name = "lblMc2"
-        Me.lblMc2.Size = New System.Drawing.Size(87, 38)
+        Me.lblMc2.Size = New System.Drawing.Size(87, 40)
         Me.lblMc2.TabIndex = 0
         Me.lblMc2.Text = "MC-2"
         Me.lblMc2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -760,9 +712,9 @@ Partial Class frmMain
         Me.lblPd1Print3Temp.AutoSize = True
         Me.lblPd1Print3Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1Print3Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1Print3Temp.Location = New System.Drawing.Point(1110, 209)
+        Me.lblPd1Print3Temp.Location = New System.Drawing.Point(1110, 207)
         Me.lblPd1Print3Temp.Name = "lblPd1Print3Temp"
-        Me.lblPd1Print3Temp.Size = New System.Drawing.Size(139, 44)
+        Me.lblPd1Print3Temp.Size = New System.Drawing.Size(139, 46)
         Me.lblPd1Print3Temp.TabIndex = 53
         Me.lblPd1Print3Temp.Text = "..."
         Me.lblPd1Print3Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -772,9 +724,9 @@ Partial Class frmMain
         Me.lblPd1Print2Temp.AutoSize = True
         Me.lblPd1Print2Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1Print2Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1Print2Temp.Location = New System.Drawing.Point(967, 209)
+        Me.lblPd1Print2Temp.Location = New System.Drawing.Point(967, 207)
         Me.lblPd1Print2Temp.Name = "lblPd1Print2Temp"
-        Me.lblPd1Print2Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd1Print2Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd1Print2Temp.TabIndex = 52
         Me.lblPd1Print2Temp.Text = "..."
         Me.lblPd1Print2Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -784,9 +736,9 @@ Partial Class frmMain
         Me.lblPd1Print1Temp.AutoSize = True
         Me.lblPd1Print1Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1Print1Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1Print1Temp.Location = New System.Drawing.Point(824, 209)
+        Me.lblPd1Print1Temp.Location = New System.Drawing.Point(824, 207)
         Me.lblPd1Print1Temp.Name = "lblPd1Print1Temp"
-        Me.lblPd1Print1Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd1Print1Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd1Print1Temp.TabIndex = 51
         Me.lblPd1Print1Temp.Text = "..."
         Me.lblPd1Print1Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -795,9 +747,9 @@ Partial Class frmMain
         '
         Me.Label61.AutoSize = True
         Me.Label61.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label61.Location = New System.Drawing.Point(681, 209)
+        Me.Label61.Location = New System.Drawing.Point(681, 207)
         Me.Label61.Name = "Label61"
-        Me.Label61.Size = New System.Drawing.Size(134, 44)
+        Me.Label61.Size = New System.Drawing.Size(134, 46)
         Me.Label61.TabIndex = 50
         Me.Label61.Text = "..."
         Me.Label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -807,9 +759,9 @@ Partial Class frmMain
         Me.lblPd1SpotTemp.AutoSize = True
         Me.lblPd1SpotTemp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1SpotTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1SpotTemp.Location = New System.Drawing.Point(538, 209)
+        Me.lblPd1SpotTemp.Location = New System.Drawing.Point(538, 207)
         Me.lblPd1SpotTemp.Name = "lblPd1SpotTemp"
-        Me.lblPd1SpotTemp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd1SpotTemp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd1SpotTemp.TabIndex = 49
         Me.lblPd1SpotTemp.Text = "..."
         Me.lblPd1SpotTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -819,9 +771,9 @@ Partial Class frmMain
         Me.lblPd1Fat2Temp.AutoSize = True
         Me.lblPd1Fat2Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1Fat2Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1Fat2Temp.Location = New System.Drawing.Point(395, 209)
+        Me.lblPd1Fat2Temp.Location = New System.Drawing.Point(395, 207)
         Me.lblPd1Fat2Temp.Name = "lblPd1Fat2Temp"
-        Me.lblPd1Fat2Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd1Fat2Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd1Fat2Temp.TabIndex = 48
         Me.lblPd1Fat2Temp.Text = "..."
         Me.lblPd1Fat2Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -831,9 +783,9 @@ Partial Class frmMain
         Me.lblPd1Fat1Temp.AutoSize = True
         Me.lblPd1Fat1Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1Fat1Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1Fat1Temp.Location = New System.Drawing.Point(252, 209)
+        Me.lblPd1Fat1Temp.Location = New System.Drawing.Point(252, 207)
         Me.lblPd1Fat1Temp.Name = "lblPd1Fat1Temp"
-        Me.lblPd1Fat1Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd1Fat1Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd1Fat1Temp.TabIndex = 47
         Me.lblPd1Fat1Temp.Text = "..."
         Me.lblPd1Fat1Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -843,9 +795,9 @@ Partial Class frmMain
         Me.lblPd1SmtTemp.AutoSize = True
         Me.lblPd1SmtTemp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd1SmtTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd1SmtTemp.Location = New System.Drawing.Point(109, 209)
+        Me.lblPd1SmtTemp.Location = New System.Drawing.Point(109, 207)
         Me.lblPd1SmtTemp.Name = "lblPd1SmtTemp"
-        Me.lblPd1SmtTemp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd1SmtTemp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd1SmtTemp.TabIndex = 46
         Me.lblPd1SmtTemp.Text = "..."
         Me.lblPd1SmtTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -855,9 +807,9 @@ Partial Class frmMain
         Me.Label56.AutoSize = True
         Me.Label56.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label56.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label56.Location = New System.Drawing.Point(6, 209)
+        Me.Label56.Location = New System.Drawing.Point(6, 207)
         Me.Label56.Name = "Label56"
-        Me.Label56.Size = New System.Drawing.Size(94, 44)
+        Me.Label56.Size = New System.Drawing.Size(94, 46)
         Me.Label56.TabIndex = 45
         Me.Label56.Text = "Temp"
         Me.Label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -866,9 +818,9 @@ Partial Class frmMain
         '
         Me.Label52.AutoSize = True
         Me.Label52.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label52.Location = New System.Drawing.Point(681, 162)
+        Me.Label52.Location = New System.Drawing.Point(681, 158)
         Me.Label52.Name = "Label52"
-        Me.Label52.Size = New System.Drawing.Size(134, 44)
+        Me.Label52.Size = New System.Drawing.Size(134, 46)
         Me.Label52.TabIndex = 41
         Me.Label52.Text = "..."
         Me.Label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -878,9 +830,9 @@ Partial Class frmMain
         Me.Label47.AutoSize = True
         Me.Label47.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label47.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label47.Location = New System.Drawing.Point(6, 162)
+        Me.Label47.Location = New System.Drawing.Point(6, 158)
         Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(94, 44)
+        Me.Label47.Size = New System.Drawing.Size(94, 46)
         Me.Label47.TabIndex = 36
         Me.Label47.Text = "Area"
         Me.Label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -890,9 +842,9 @@ Partial Class frmMain
         Me.lblPC12Humid.AutoSize = True
         Me.lblPC12Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPC12Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPC12Humid.Location = New System.Drawing.Point(1110, 97)
+        Me.lblPC12Humid.Location = New System.Drawing.Point(1110, 101)
         Me.lblPC12Humid.Name = "lblPC12Humid"
-        Me.lblPC12Humid.Size = New System.Drawing.Size(139, 44)
+        Me.lblPC12Humid.Size = New System.Drawing.Size(139, 46)
         Me.lblPC12Humid.TabIndex = 26
         Me.lblPC12Humid.Text = "..."
         Me.lblPC12Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -902,9 +854,9 @@ Partial Class frmMain
         Me.lblPd2Pu12Humid.AutoSize = True
         Me.lblPd2Pu12Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd2Pu12Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd2Pu12Humid.Location = New System.Drawing.Point(967, 97)
+        Me.lblPd2Pu12Humid.Location = New System.Drawing.Point(967, 101)
         Me.lblPd2Pu12Humid.Name = "lblPd2Pu12Humid"
-        Me.lblPd2Pu12Humid.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd2Pu12Humid.Size = New System.Drawing.Size(134, 46)
         Me.lblPd2Pu12Humid.TabIndex = 25
         Me.lblPd2Pu12Humid.Text = "..."
         Me.lblPd2Pu12Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -914,9 +866,9 @@ Partial Class frmMain
         Me.lblPd2Pu11Humid.AutoSize = True
         Me.lblPd2Pu11Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd2Pu11Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd2Pu11Humid.Location = New System.Drawing.Point(824, 97)
+        Me.lblPd2Pu11Humid.Location = New System.Drawing.Point(824, 101)
         Me.lblPd2Pu11Humid.Name = "lblPd2Pu11Humid"
-        Me.lblPd2Pu11Humid.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd2Pu11Humid.Size = New System.Drawing.Size(134, 46)
         Me.lblPd2Pu11Humid.TabIndex = 24
         Me.lblPd2Pu11Humid.Text = "..."
         Me.lblPd2Pu11Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -926,9 +878,9 @@ Partial Class frmMain
         Me.lblPd2SmtHumid.AutoSize = True
         Me.lblPd2SmtHumid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd2SmtHumid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd2SmtHumid.Location = New System.Drawing.Point(681, 97)
+        Me.lblPd2SmtHumid.Location = New System.Drawing.Point(681, 101)
         Me.lblPd2SmtHumid.Name = "lblPd2SmtHumid"
-        Me.lblPd2SmtHumid.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd2SmtHumid.Size = New System.Drawing.Size(134, 46)
         Me.lblPd2SmtHumid.TabIndex = 23
         Me.lblPd2SmtHumid.Text = "..."
         Me.lblPd2SmtHumid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -938,9 +890,9 @@ Partial Class frmMain
         Me.lblPc2Humid.AutoSize = True
         Me.lblPc2Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPc2Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPc2Humid.Location = New System.Drawing.Point(538, 97)
+        Me.lblPc2Humid.Location = New System.Drawing.Point(538, 101)
         Me.lblPc2Humid.Name = "lblPc2Humid"
-        Me.lblPc2Humid.Size = New System.Drawing.Size(134, 44)
+        Me.lblPc2Humid.Size = New System.Drawing.Size(134, 46)
         Me.lblPc2Humid.TabIndex = 22
         Me.lblPc2Humid.Text = "..."
         Me.lblPc2Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -950,9 +902,9 @@ Partial Class frmMain
         Me.lblPc1Humid.AutoSize = True
         Me.lblPc1Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPc1Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPc1Humid.Location = New System.Drawing.Point(395, 97)
+        Me.lblPc1Humid.Location = New System.Drawing.Point(395, 101)
         Me.lblPc1Humid.Name = "lblPc1Humid"
-        Me.lblPc1Humid.Size = New System.Drawing.Size(134, 44)
+        Me.lblPc1Humid.Size = New System.Drawing.Size(134, 46)
         Me.lblPc1Humid.TabIndex = 21
         Me.lblPc1Humid.Text = "..."
         Me.lblPc1Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -962,9 +914,9 @@ Partial Class frmMain
         Me.lblMc2Humid.AutoSize = True
         Me.lblMc2Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblMc2Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMc2Humid.Location = New System.Drawing.Point(252, 97)
+        Me.lblMc2Humid.Location = New System.Drawing.Point(252, 101)
         Me.lblMc2Humid.Name = "lblMc2Humid"
-        Me.lblMc2Humid.Size = New System.Drawing.Size(134, 44)
+        Me.lblMc2Humid.Size = New System.Drawing.Size(134, 46)
         Me.lblMc2Humid.TabIndex = 20
         Me.lblMc2Humid.Text = "..."
         Me.lblMc2Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -974,9 +926,9 @@ Partial Class frmMain
         Me.lblMc1Humid.AutoSize = True
         Me.lblMc1Humid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblMc1Humid.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMc1Humid.Location = New System.Drawing.Point(109, 97)
+        Me.lblMc1Humid.Location = New System.Drawing.Point(109, 101)
         Me.lblMc1Humid.Name = "lblMc1Humid"
-        Me.lblMc1Humid.Size = New System.Drawing.Size(134, 44)
+        Me.lblMc1Humid.Size = New System.Drawing.Size(134, 46)
         Me.lblMc1Humid.TabIndex = 19
         Me.lblMc1Humid.Text = "..."
         Me.lblMc1Humid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -986,9 +938,9 @@ Partial Class frmMain
         Me.Label20.AutoSize = True
         Me.Label20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(6, 97)
+        Me.Label20.Location = New System.Drawing.Point(6, 101)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(94, 44)
+        Me.Label20.Size = New System.Drawing.Size(94, 46)
         Me.Label20.TabIndex = 18
         Me.Label20.Text = "Humid"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -998,9 +950,9 @@ Partial Class frmMain
         Me.lblPc12Temp.AutoSize = True
         Me.lblPc12Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPc12Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPc12Temp.Location = New System.Drawing.Point(1110, 50)
+        Me.lblPc12Temp.Location = New System.Drawing.Point(1110, 52)
         Me.lblPc12Temp.Name = "lblPc12Temp"
-        Me.lblPc12Temp.Size = New System.Drawing.Size(139, 44)
+        Me.lblPc12Temp.Size = New System.Drawing.Size(139, 46)
         Me.lblPc12Temp.TabIndex = 17
         Me.lblPc12Temp.Text = "..."
         Me.lblPc12Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1010,9 +962,9 @@ Partial Class frmMain
         Me.lblPd2Pu12Temp.AutoSize = True
         Me.lblPd2Pu12Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd2Pu12Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd2Pu12Temp.Location = New System.Drawing.Point(967, 50)
+        Me.lblPd2Pu12Temp.Location = New System.Drawing.Point(967, 52)
         Me.lblPd2Pu12Temp.Name = "lblPd2Pu12Temp"
-        Me.lblPd2Pu12Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd2Pu12Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd2Pu12Temp.TabIndex = 16
         Me.lblPd2Pu12Temp.Text = "..."
         Me.lblPd2Pu12Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1022,9 +974,9 @@ Partial Class frmMain
         Me.lblPd2Pu11Temp.AutoSize = True
         Me.lblPd2Pu11Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd2Pu11Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd2Pu11Temp.Location = New System.Drawing.Point(824, 50)
+        Me.lblPd2Pu11Temp.Location = New System.Drawing.Point(824, 52)
         Me.lblPd2Pu11Temp.Name = "lblPd2Pu11Temp"
-        Me.lblPd2Pu11Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd2Pu11Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd2Pu11Temp.TabIndex = 15
         Me.lblPd2Pu11Temp.Text = "..."
         Me.lblPd2Pu11Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1034,9 +986,9 @@ Partial Class frmMain
         Me.lblPd2SmtTemp.AutoSize = True
         Me.lblPd2SmtTemp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPd2SmtTemp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPd2SmtTemp.Location = New System.Drawing.Point(681, 50)
+        Me.lblPd2SmtTemp.Location = New System.Drawing.Point(681, 52)
         Me.lblPd2SmtTemp.Name = "lblPd2SmtTemp"
-        Me.lblPd2SmtTemp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPd2SmtTemp.Size = New System.Drawing.Size(134, 46)
         Me.lblPd2SmtTemp.TabIndex = 14
         Me.lblPd2SmtTemp.Text = "..."
         Me.lblPd2SmtTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1046,9 +998,9 @@ Partial Class frmMain
         Me.lblPc2Temp.AutoSize = True
         Me.lblPc2Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPc2Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPc2Temp.Location = New System.Drawing.Point(538, 50)
+        Me.lblPc2Temp.Location = New System.Drawing.Point(538, 52)
         Me.lblPc2Temp.Name = "lblPc2Temp"
-        Me.lblPc2Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPc2Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPc2Temp.TabIndex = 13
         Me.lblPc2Temp.Text = "..."
         Me.lblPc2Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1058,9 +1010,9 @@ Partial Class frmMain
         Me.lblPc1Temp.AutoSize = True
         Me.lblPc1Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblPc1Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPc1Temp.Location = New System.Drawing.Point(395, 50)
+        Me.lblPc1Temp.Location = New System.Drawing.Point(395, 52)
         Me.lblPc1Temp.Name = "lblPc1Temp"
-        Me.lblPc1Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblPc1Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblPc1Temp.TabIndex = 12
         Me.lblPc1Temp.Text = "..."
         Me.lblPc1Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1070,9 +1022,9 @@ Partial Class frmMain
         Me.lblMc2Temp.AutoSize = True
         Me.lblMc2Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblMc2Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMc2Temp.Location = New System.Drawing.Point(252, 50)
+        Me.lblMc2Temp.Location = New System.Drawing.Point(252, 52)
         Me.lblMc2Temp.Name = "lblMc2Temp"
-        Me.lblMc2Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblMc2Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblMc2Temp.TabIndex = 11
         Me.lblMc2Temp.Text = "..."
         Me.lblMc2Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1082,9 +1034,9 @@ Partial Class frmMain
         Me.lblMc1Temp.AutoSize = True
         Me.lblMc1Temp.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lblMc1Temp.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMc1Temp.Location = New System.Drawing.Point(109, 50)
+        Me.lblMc1Temp.Location = New System.Drawing.Point(109, 52)
         Me.lblMc1Temp.Name = "lblMc1Temp"
-        Me.lblMc1Temp.Size = New System.Drawing.Size(134, 44)
+        Me.lblMc1Temp.Size = New System.Drawing.Size(134, 46)
         Me.lblMc1Temp.TabIndex = 10
         Me.lblMc1Temp.Text = "..."
         Me.lblMc1Temp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1094,9 +1046,9 @@ Partial Class frmMain
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(6, 50)
+        Me.Label11.Location = New System.Drawing.Point(6, 52)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(94, 44)
+        Me.Label11.Size = New System.Drawing.Size(94, 46)
         Me.Label11.TabIndex = 9
         Me.Label11.Text = "Temp"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1108,7 +1060,7 @@ Partial Class frmMain
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 3)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(94, 44)
+        Me.Label1.Size = New System.Drawing.Size(94, 46)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Area"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1121,11 +1073,11 @@ Partial Class frmMain
         Me.TableLayoutPanel9.Controls.Add(Me.lblPd1Fat2, 0, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.PictureBox8, 1, 0)
         Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(395, 165)
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(395, 161)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 1
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel9.TabIndex = 69
         '
         'lblPd1Fat2
@@ -1136,7 +1088,7 @@ Partial Class frmMain
         Me.lblPd1Fat2.Location = New System.Drawing.Point(0, 0)
         Me.lblPd1Fat2.Margin = New System.Windows.Forms.Padding(0)
         Me.lblPd1Fat2.Name = "lblPd1Fat2"
-        Me.lblPd1Fat2.Size = New System.Drawing.Size(93, 38)
+        Me.lblPd1Fat2.Size = New System.Drawing.Size(93, 40)
         Me.lblPd1Fat2.TabIndex = 0
         Me.lblPd1Fat2.Text = "PD1-FAT-2"
         Me.lblPd1Fat2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1162,7 +1114,7 @@ Partial Class frmMain
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel6.TabIndex = 66
         '
         'lblPc2
@@ -1172,7 +1124,7 @@ Partial Class frmMain
         Me.lblPc2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPc2.Location = New System.Drawing.Point(3, 0)
         Me.lblPc2.Name = "lblPc2"
-        Me.lblPc2.Size = New System.Drawing.Size(87, 38)
+        Me.lblPc2.Size = New System.Drawing.Size(87, 40)
         Me.lblPc2.TabIndex = 0
         Me.lblPc2.Text = "PC-2"
         Me.lblPc2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1191,10 +1143,10 @@ Partial Class frmMain
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label2.Location = New System.Drawing.Point(3, 144)
+        Me.Label2.Location = New System.Drawing.Point(3, 150)
         Me.Label2.Margin = New System.Windows.Forms.Padding(0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(100, 15)
+        Me.Label2.Size = New System.Drawing.Size(100, 5)
         Me.Label2.TabIndex = 71
         '
         'TableLayoutPanel7
@@ -1205,11 +1157,11 @@ Partial Class frmMain
         Me.TableLayoutPanel7.Controls.Add(Me.lblPd1Smt, 0, 0)
         Me.TableLayoutPanel7.Controls.Add(Me.PictureBox6, 1, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(109, 165)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(109, 161)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel7.TabIndex = 67
         '
         'lblPd1Smt
@@ -1219,7 +1171,7 @@ Partial Class frmMain
         Me.lblPd1Smt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPd1Smt.Location = New System.Drawing.Point(3, 0)
         Me.lblPd1Smt.Name = "lblPd1Smt"
-        Me.lblPd1Smt.Size = New System.Drawing.Size(87, 38)
+        Me.lblPd1Smt.Size = New System.Drawing.Size(87, 40)
         Me.lblPd1Smt.TabIndex = 0
         Me.lblPd1Smt.Text = "PD1-SMT"
         Me.lblPd1Smt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1229,7 +1181,7 @@ Partial Class frmMain
         Me.PictureBox6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox6.Location = New System.Drawing.Point(96, 3)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(35, 32)
+        Me.PictureBox6.Size = New System.Drawing.Size(35, 34)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox6.TabIndex = 1
         Me.PictureBox6.TabStop = False
@@ -1241,7 +1193,7 @@ Partial Class frmMain
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel8.Controls.Add(Me.lblPd1Fat1, 0, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.PictureBox7, 1, 0)
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(252, 165)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(252, 161)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 1
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -1283,7 +1235,7 @@ Partial Class frmMain
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 1
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel11.TabIndex = 68
         '
         'lblPd2Pu11
@@ -1294,7 +1246,7 @@ Partial Class frmMain
         Me.lblPd2Pu11.Location = New System.Drawing.Point(0, 0)
         Me.lblPd2Pu11.Margin = New System.Windows.Forms.Padding(0)
         Me.lblPd2Pu11.Name = "lblPd2Pu11"
-        Me.lblPd2Pu11.Size = New System.Drawing.Size(93, 38)
+        Me.lblPd2Pu11.Size = New System.Drawing.Size(93, 40)
         Me.lblPd2Pu11.TabIndex = 0
         Me.lblPd2Pu11.Text = "PD2-PU1-1"
         Me.lblPd2Pu11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1304,7 +1256,7 @@ Partial Class frmMain
         Me.PictureBox10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox10.Location = New System.Drawing.Point(96, 3)
         Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(35, 32)
+        Me.PictureBox10.Size = New System.Drawing.Size(35, 34)
         Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox10.TabIndex = 1
         Me.PictureBox10.TabStop = False
@@ -1321,7 +1273,7 @@ Partial Class frmMain
         Me.TableLayoutPanel12.Name = "TableLayoutPanel12"
         Me.TableLayoutPanel12.RowCount = 1
         Me.TableLayoutPanel12.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel12.Size = New System.Drawing.Size(134, 38)
+        Me.TableLayoutPanel12.Size = New System.Drawing.Size(134, 40)
         Me.TableLayoutPanel12.TabIndex = 68
         '
         'lblPd2Pu12
@@ -1332,7 +1284,7 @@ Partial Class frmMain
         Me.lblPd2Pu12.Location = New System.Drawing.Point(0, 0)
         Me.lblPd2Pu12.Margin = New System.Windows.Forms.Padding(0)
         Me.lblPd2Pu12.Name = "lblPd2Pu12"
-        Me.lblPd2Pu12.Size = New System.Drawing.Size(93, 38)
+        Me.lblPd2Pu12.Size = New System.Drawing.Size(93, 40)
         Me.lblPd2Pu12.TabIndex = 0
         Me.lblPd2Pu12.Text = "PD2-PU1-2"
         Me.lblPd2Pu12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1342,7 +1294,7 @@ Partial Class frmMain
         Me.PictureBox11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PictureBox11.Location = New System.Drawing.Point(96, 3)
         Me.PictureBox11.Name = "PictureBox11"
-        Me.PictureBox11.Size = New System.Drawing.Size(35, 32)
+        Me.PictureBox11.Size = New System.Drawing.Size(35, 34)
         Me.PictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox11.TabIndex = 1
         Me.PictureBox11.TabStop = False
@@ -1354,7 +1306,7 @@ Partial Class frmMain
         Me.TableLayoutPanel13.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel13.Controls.Add(Me.lblPd1Spot, 0, 0)
         Me.TableLayoutPanel13.Controls.Add(Me.PictureBox12, 1, 0)
-        Me.TableLayoutPanel13.Location = New System.Drawing.Point(538, 165)
+        Me.TableLayoutPanel13.Location = New System.Drawing.Point(538, 161)
         Me.TableLayoutPanel13.Name = "TableLayoutPanel13"
         Me.TableLayoutPanel13.RowCount = 1
         Me.TableLayoutPanel13.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -1391,7 +1343,7 @@ Partial Class frmMain
         Me.TableLayoutPanel14.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel14.Controls.Add(Me.lblPd1Print1, 0, 0)
         Me.TableLayoutPanel14.Controls.Add(Me.PictureBox13, 1, 0)
-        Me.TableLayoutPanel14.Location = New System.Drawing.Point(824, 165)
+        Me.TableLayoutPanel14.Location = New System.Drawing.Point(824, 161)
         Me.TableLayoutPanel14.Name = "TableLayoutPanel14"
         Me.TableLayoutPanel14.RowCount = 1
         Me.TableLayoutPanel14.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -1428,7 +1380,7 @@ Partial Class frmMain
         Me.TableLayoutPanel15.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel15.Controls.Add(Me.lblPd1Print2, 0, 0)
         Me.TableLayoutPanel15.Controls.Add(Me.PictureBox14, 1, 0)
-        Me.TableLayoutPanel15.Location = New System.Drawing.Point(967, 165)
+        Me.TableLayoutPanel15.Location = New System.Drawing.Point(967, 161)
         Me.TableLayoutPanel15.Name = "TableLayoutPanel15"
         Me.TableLayoutPanel15.RowCount = 1
         Me.TableLayoutPanel15.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -1465,7 +1417,7 @@ Partial Class frmMain
         Me.TableLayoutPanel16.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.TableLayoutPanel16.Controls.Add(Me.lblPd1Print3, 0, 0)
         Me.TableLayoutPanel16.Controls.Add(Me.PictureBox15, 1, 0)
-        Me.TableLayoutPanel16.Location = New System.Drawing.Point(1110, 165)
+        Me.TableLayoutPanel16.Location = New System.Drawing.Point(1110, 161)
         Me.TableLayoutPanel16.Name = "TableLayoutPanel16"
         Me.TableLayoutPanel16.RowCount = 1
         Me.TableLayoutPanel16.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -1542,7 +1494,7 @@ Partial Class frmMain
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(139, 38)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(139, 40)
         Me.TableLayoutPanel1.TabIndex = 80
         '
         'lblPc12
@@ -1552,7 +1504,7 @@ Partial Class frmMain
         Me.lblPc12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPc12.Location = New System.Drawing.Point(3, 0)
         Me.lblPc12.Name = "lblPc12"
-        Me.lblPc12.Size = New System.Drawing.Size(91, 38)
+        Me.lblPc12.Size = New System.Drawing.Size(91, 40)
         Me.lblPc12.TabIndex = 0
         Me.lblPc12.Text = "PC1-2"
         Me.lblPc12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1566,10 +1518,45 @@ Partial Class frmMain
         Me.PictureBox17.TabIndex = 1
         Me.PictureBox17.TabStop = False
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(1268, 24)
+        Me.MenuStrip1.TabIndex = 27
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'FileToolStripMenuItem
+        '
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem})
+        Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
+        Me.FileToolStripMenuItem.Text = "File"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(14, 2)
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 20)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(1328, 93)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -1595,18 +1582,15 @@ Partial Class frmMain
         Me.Controls.Add(Me.lblDateJp)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
-        Me.Controls.Add(Me.lblDateVN)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
-        Me.Controls.Add(Me.Label34)
-        Me.Controls.Add(Me.Label33)
-        Me.Controls.Add(Me.Label32)
         Me.Controls.Add(Me.GroupBox6)
-        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.WebBrowser1)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMain"
         Me.Text = "UMC Electronics Viet Nam"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -1662,6 +1646,8 @@ Partial Class frmMain
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         CType(Me.PictureBox17, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -1669,20 +1655,15 @@ Partial Class frmMain
 
     End Sub
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label32 As System.Windows.Forms.Label
-    Friend WithEvents Label33 As System.Windows.Forms.Label
-    Friend WithEvents Label34 As System.Windows.Forms.Label
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
     Friend WithEvents Label35 As System.Windows.Forms.Label
     Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
-    Friend WithEvents lblDateVN As System.Windows.Forms.Label
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
     Friend WithEvents Button2 As Button
     Friend WithEvents txtPass As TextBox
@@ -1786,4 +1767,9 @@ Partial Class frmMain
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents lblPc12 As Label
     Friend WithEvents PictureBox17 As PictureBox
+    Friend WithEvents MenuStrip1 As MenuStrip
+    Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
 End Class

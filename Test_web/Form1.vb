@@ -2,40 +2,27 @@
 Imports System.Net
 Imports System.Net.Mail
 Imports System.Text
-
 Public Class frmMain
-    Dim Temp(20) As Double
-    Dim humd(20) As Long
-    Const ALARM_AG As Integer = 30
-    'Dim time(3) As String
-    Dim alarm_again As Integer = ALARM_AG
-    Dim i As Integer = 0
-    'Dim count As Integer = 0
-    Dim tempMin As Double
-    Dim tempMax As Double
-    Dim humidMin As Integer
-    Dim humidMax As Integer
-    Dim filePath As String = My.Application.Info.DirectoryPath & "\Setup\DataConfig.txt"
+    'Dim i As Integer = 0
+    Dim pathEmail As String = My.Application.Info.DirectoryPath & "\Setup\ListEmail.txt"
     Dim lstObjLog As List(Of ObjLog) = New List(Of ObjLog)
     Dim no As Integer = 0
     Dim tempArea As List(Of String) = New List(Of String)
     Dim listEmail As List(Of String)
     Dim listArea As List(Of ObjLog)
     Dim flag(20) As Boolean
-    Dim PRINT_TEMP_MIN As Integer = 22
-    Dim PRINT_TEMP_MAX As Integer = 28
-    Dim PRINT_HUMID_MIN As Integer = 40
-    Dim PRINT_HUMID_MAX As Integer = 60
     Dim tempRange As String
     Dim humidRange As String
-    Dim TIMEOUT As Integer = 59
     Dim COUNT_ALARM As Integer
+    Dim setting As SystemSetting
+    Dim pathConfig As String = My.Application.Info.DirectoryPath & "\Setup\config.xml"
+    Dim dicArea As Dictionary(Of String, ObjLog)
     Private Sub ReadfromWEB()
-
+        Dim rContent As RichTextBox = New RichTextBox
+        dicArea = New Dictionary(Of String, ObjLog)
         If WebBrowser1.ReadyState = WebBrowserReadyState.Complete Then
-            RichTextBox1.Text = WebBrowser1.Document.Body.InnerText
-
-            If (RichTextBox1.Lines(2) <> "Password") Then
+            rContent.Text = WebBrowser1.Document.Body.InnerText
+            If (rContent.Lines(2) <> "Password") Then
                 Dim element As HtmlElementCollection = Nothing
                 Dim lsts = New List(Of String)
 
@@ -55,106 +42,60 @@ Public Class frmMain
                     Dim humid = Common.getBetween(tempArea(2), "[Humid]", "%").Trim
                     Dim time = Common.GetTime(Common.getBetween(tempArea(1), "<br />", "')").Trim)
                     Dim objArea As ObjLog = New ObjLog(area, temp, humid, time)
-
+                    dicArea.Add(area, objArea)
                     listArea.Add(objArea)
                     lsts.RemoveRange(0, 3)
                 End While
                 Try
-                    lblMc1Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("MC"))._temp & " C"
-                    lblMc1Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("MC"))._humid & " %"
+                    lblMc1Temp.Text = dicArea.Item("MC")._temp & " C"
+                    lblMc1Humid.Text = dicArea.Item("MC")._humid & " %"
 
-                    lblPc1Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC"))._temp & " C"
-                    lblPc1Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC"))._humid & " %"
+                    lblPc1Temp.Text = dicArea.Item("PC")._temp & " C"
+                    lblPc1Humid.Text = dicArea.Item("PC")._humid & " %"
 
-                    lblPd1SmtTemp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SMT"))._temp & " C"
-                    lblPd1SmtHumid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SMT"))._humid & " %"
+                    lblPd1SmtTemp.Text = dicArea.Item("PD1_SMT")._temp & " C"
+                    lblPd1SmtHumid.Text = dicArea.Item("PD1_SMT")._humid & " %"
 
-                    lblMc2Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("MC2"))._temp & " C"
-                    lblMc2Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("MC2"))._humid & " %"
+                    lblMc2Temp.Text = dicArea.Item("MC2")._temp & " C"
+                    lblMc2Humid.Text = dicArea.Item("MC2")._humid & " %"
 
-                    lblPc2Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC2"))._temp & " C"
-                    lblPc2Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC2"))._humid & " %"
+                    lblPc2Temp.Text = dicArea.Item("PC2")._temp & " C"
+                    lblPc2Humid.Text = dicArea.Item("PC2")._humid & " %"
 
-                    lblPd2SmtTemp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_SMT"))._temp & " C"
-                    lblPd2SmtHumid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_SMT"))._humid & " %"
+                    lblPd2SmtTemp.Text = dicArea.Item("PD2_SMT")._temp & " C"
+                    lblPd2SmtHumid.Text = dicArea.Item("PD2_SMT")._humid & " %"
 
-                    lblPd2Pu11Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_PU1_1"))._temp & " C"
-                    lblPd2Pu11Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_PU1_1"))._humid & " %"
+                    lblPd2Pu11Temp.Text = dicArea.Item("PD2_PU1_1")._temp & " C"
+                    lblPd2Pu11Humid.Text = dicArea.Item("PD2_PU1_1")._humid & " %"
 
-                    lblPd2Pu12Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_PU1_2"))._temp & " C"
-                    lblPd2Pu12Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_PU1_2"))._humid & " %"
+                    lblPd2Pu12Temp.Text = dicArea.Item("PD2_PU1_2")._temp & " C"
+                    lblPd2Pu12Humid.Text = dicArea.Item("PD2_PU1_2")._humid & " %"
 
-                    lblPd1Fat1Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_1"))._temp & " C"
-                    lblPd1Fat1Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_1"))._humid & " %"
+                    lblPd1Fat1Temp.Text = dicArea.Item("PD1_FAT_1")._temp & " C"
+                    lblPd1Fat1Humid.Text = dicArea.Item("PD1_FAT_1")._humid & " %"
 
-                    lblPd1Fat2Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_2"))._temp & " C"
-                    lblPd1Fat2Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_2"))._humid & " %"
+                    lblPd1Fat2Temp.Text = dicArea.Item("PD1_FAT_2")._temp & " C"
+                    lblPd1Fat2Humid.Text = dicArea.Item("PD1_FAT_2")._humid & " %"
 
-                    lblPd1SpotTemp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT WEDING"))._temp & " C"
-                    lblPd1SpotHumid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT WEDING"))._humid & " %"
+                    lblPd1SpotTemp.Text = dicArea.Item("PD1_SPOT WEDING")._temp & " C"
+                    lblPd1SpotHumid.Text = dicArea.Item("PD1_SPOT WEDING")._humid & " %"
 
-                    lblPd1Print1Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_1"))._temp & " C"
-                    lblPd1Print1Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_1"))._humid & " %"
+                    lblPd1Print1Temp.Text = dicArea.Item("PD1_PRINT_1")._temp & " C"
+                    lblPd1Print1Humid.Text = dicArea.Item("PD1_PRINT_1")._humid & " %"
 
-                    lblPd1Print2Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_2"))._temp & " C"
-                    lblPd1Print2Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_2"))._humid & " %"
+                    lblPd1Print2Temp.Text = dicArea.Item("PD1_PRINT_2")._temp & " C"
+                    lblPd1Print2Humid.Text = dicArea.Item("PD1_PRINT_2")._humid & " %"
 
-                    lblPd1Print3Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_3"))._temp & " C"
-                    lblPd1Print3Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_3"))._humid & " %"
+                    lblPd1Print3Temp.Text = dicArea.Item("PD1_PRINT_3")._temp & " C"
+                    lblPd1Print3Humid.Text = dicArea.Item("PD1_PRINT_3")._humid & " %"
 
-                    lblPc12Temp.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC1_2"))._temp & " C"
-                    lblPC12Humid.Text = listArea.FirstOrDefault(Function(p) p._area.Equals("PC1_2"))._humid & " %"
+                    lblPc12Temp.Text = dicArea.Item("PC1_2")._temp & " C"
+                    lblPC12Humid.Text = dicArea.Item("PC1_2")._humid & " %"
 
                 Catch ex As Exception
                     MessageBox.Show("Bạn đã thay đổi thông tin trên website", "Liên hệ Quyết LCA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Close()
                 End Try
-                'temp of MC1
-                Temp(1) = Microsoft.VisualBasic.Left(lblMc1Temp.Text, 4)
-                'temp of PC1
-                Temp(2) = Microsoft.VisualBasic.Left(lblPc1Temp.Text, 4)
-                'temp of PD1-1
-                Temp(3) = Microsoft.VisualBasic.Left(lblPd1SmtTemp.Text, 4)
-                'temp of MC2
-                Temp(4) = Microsoft.VisualBasic.Left(lblMc2Temp.Text, 4)
-                'temp of PC2
-                Temp(5) = Microsoft.VisualBasic.Left(lblPc2Temp.Text, 4)
-                'temp of PD2_SMT
-                Temp(6) = Microsoft.VisualBasic.Left(lblPd2SmtTemp.Text, 4)
-                'temp of PD2_PU1_1
-                Temp(7) = Microsoft.VisualBasic.Left(lblPd2Pu11Temp.Text, 4)
-                'temp of PD2_PU1_2
-                Temp(8) = Microsoft.VisualBasic.Left(lblPd2Pu12Temp.Text, 4)
-                'temp of PD1_FAT_1
-                Temp(9) = Microsoft.VisualBasic.Left(lblPd1Fat1Temp.Text, 4)
-                'temp of PD1_FAT_2
-                Temp(10) = Microsoft.VisualBasic.Left(lblPd1Fat2Temp.Text, 4)
-                'temp of PD1_SPOT
-                Temp(11) = Microsoft.VisualBasic.Left(lblPd1SpotTemp.Text, 4)
-                'temp of PD1_PRINT_1
-                Temp(12) = Microsoft.VisualBasic.Left(lblPd1Print1Temp.Text, 4)
-                'temp of PD1_PRINT_2
-                Temp(13) = Microsoft.VisualBasic.Left(lblPd1Print2Temp.Text, 4)
-                'temp of PD1_PRINT_3
-                Temp(14) = Microsoft.VisualBasic.Left(lblPd1Print3Temp.Text, 4)
-                ' temp of PC1_2
-                Temp(15) = Microsoft.VisualBasic.Left(lblPc12Temp.Text, 4)
-
-                humd(1) = Mid(lblMc1Humid.Text, 1, 3)
-                humd(2) = Mid(lblPc1Humid.Text, 1, 3)
-                humd(3) = Mid(lblPd1SmtHumid.Text, 1, 3)
-                humd(4) = Mid(lblMc2Humid.Text, 1, 3)
-                humd(5) = Mid(lblPc2Humid.Text, 1, 3)
-                humd(6) = Mid(lblPd2SmtHumid.Text, 1, 3)
-                humd(7) = Mid(lblPd2Pu11Humid.Text, 1, 3)
-                humd(8) = Mid(lblPd2Pu12Humid.Text, 1, 3)
-                humd(9) = Mid(lblPd1Fat1Humid.Text, 1, 3)
-                humd(10) = Mid(lblPd1Fat2Humid.Text, 1, 3)
-                humd(11) = Mid(lblPd1SpotHumid.Text, 1, 3)
-                humd(12) = Mid(lblPd1Print1Humid.Text, 1, 3)
-                humd(13) = Mid(lblPd1Print2Humid.Text, 1, 3)
-                humd(14) = Mid(lblPd1Print3Humid.Text, 1, 3)
-                humd(15) = Mid(lblPC12Humid.Text, 1, 3)
 
             Else
                 login()
@@ -170,11 +111,11 @@ Public Class frmMain
 
         For Each element As HtmlElement In elements
             If element.Name = "lid" Then
-                element.SetAttribute("value", "tdgd9370")
+                element.SetAttribute("value", setting._username)
             End If
 
             If element.Name = "lpd" Then
-                element.SetAttribute("value", "cuongadn90")
+                element.SetAttribute("value", setting._password)
             End If
 
             If element.Name = "" Then
@@ -192,8 +133,8 @@ Public Class frmMain
             COUNT_ALARM = 0
         End If
         '-----------------------------------------------------------------------------------------------------------
-        lblMc1Temp.ForeColor = If(Temp(1) >= tempMin And Temp(1) <= tempMax, Color.Blue, Color.Red)
-        lblMc1Humid.ForeColor = If(humd(1) >= humidMin And humd(1) <= humidMax, Color.Blue, Color.Red)
+        lblMc1Temp.ForeColor = If(dicArea.Item("MC")._temp >= setting._tempMin And dicArea.Item("MC")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblMc1Humid.ForeColor = If(dicArea.Item("MC")._humid >= setting._humidMin And dicArea.Item("MC")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblMc1Temp.ForeColor = Color.Blue And lblMc1Humid.ForeColor = Color.Blue Then
             PictureBox2.Image = Image.FromFile("OK.jpg")
@@ -204,8 +145,8 @@ Public Class frmMain
         End If
 
         '-----------------------------------------------------------------------------------------------------------
-        lblPc1Temp.ForeColor = If(Temp(2) >= tempMin And Temp(2) <= tempMax, Color.Blue, Color.Red)
-        lblPc1Humid.ForeColor = If(humd(2) >= humidMin And humd(2) <= humidMax, Color.Blue, Color.Red)
+        lblPc1Temp.ForeColor = If(dicArea.Item("PC")._temp >= setting._tempMin And dicArea.Item("PC")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPc1Humid.ForeColor = If(dicArea.Item("PC")._humid >= setting._humidMin And dicArea.Item("PC")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPc1Temp.ForeColor = Color.Blue And lblPc1Humid.ForeColor = Color.Blue Then
             PictureBox4.Image = Image.FromFile("OK.jpg")
@@ -215,8 +156,8 @@ Public Class frmMain
             flag(2) = False
         End If
         '...............................................................................................................
-        lblPd1SmtTemp.ForeColor = If(Temp(3) >= tempMin And Temp(3) <= tempMax, Color.Blue, Color.Red)
-        lblPd1SmtHumid.ForeColor = If(humd(3) >= humidMin And humd(3) <= humidMax, Color.Blue, Color.Red)
+        lblPd1SmtTemp.ForeColor = If(dicArea.Item("PD1_SMT")._temp >= setting._tempMin And dicArea.Item("PD1_SMT")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1SmtHumid.ForeColor = If(dicArea.Item("PD1_SMT")._humid >= setting._humidMin And dicArea.Item("PD1_SMT")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd1SmtTemp.ForeColor = Color.Blue And lblPd1SmtHumid.ForeColor = Color.Blue Then
             PictureBox6.Image = Image.FromFile("OK.jpg")
@@ -227,8 +168,8 @@ Public Class frmMain
         End If
         '---------------------------------------------------------------------------------------------------------------
 
-        lblMc2Temp.ForeColor = If(Temp(4) >= tempMin And Temp(4) <= tempMax, Color.Blue, Color.Red)
-        lblMc2Humid.ForeColor = If(humd(4) >= humidMin And humd(4) <= humidMax, Color.Blue, Color.Red)
+        lblMc2Temp.ForeColor = If(dicArea.Item("MC2")._temp >= setting._tempMin And dicArea.Item("MC2")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblMc2Humid.ForeColor = If(dicArea.Item("MC2")._humid >= setting._humidMin And dicArea.Item("MC2")._humid <= setting._humidMax, Color.Blue, Color.Red)
         If lblMc2Temp.ForeColor = Color.Blue And lblMc2Humid.ForeColor = Color.Blue Then
             PictureBox3.Image = Image.FromFile("OK.jpg")
             flag(4) = True
@@ -237,8 +178,8 @@ Public Class frmMain
             flag(4) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPc2Temp.ForeColor = If(Temp(5) >= tempMin And Temp(5) <= tempMax, Color.Blue, Color.Red)
-        lblPc2Humid.ForeColor = If(humd(5) >= humidMin And humd(5) <= humidMax, Color.Blue, Color.Red)
+        lblPc2Temp.ForeColor = If(dicArea.Item("PC2")._temp >= setting._tempMin And dicArea.Item("PC2")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPc2Humid.ForeColor = If(dicArea.Item("PC2")._humid >= setting._humidMin And dicArea.Item("PC2")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPc2Temp.ForeColor = Color.Blue And lblPc2Humid.ForeColor = Color.Blue Then
             PictureBox5.Image = Image.FromFile("OK.jpg")
@@ -249,8 +190,8 @@ Public Class frmMain
         End If
         '---------------------------------------------------------------------------------------------------------------
 
-        lblPd2SmtTemp.ForeColor = If(Temp(6) >= tempMin And Temp(6) <= tempMax, Color.Blue, Color.Red)
-        lblPd2SmtHumid.ForeColor = If(humd(6) >= humidMin And humd(6) <= humidMax, Color.Blue, Color.Red)
+        lblPd2SmtTemp.ForeColor = If(dicArea.Item("PD2_SMT")._temp >= setting._tempMin And dicArea.Item("PD2_SMT")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd2SmtHumid.ForeColor = If(dicArea.Item("PD2_SMT")._humid >= setting._humidMin And dicArea.Item("PD2_SMT")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd2SmtTemp.ForeColor = Color.Blue And lblPd2SmtHumid.ForeColor = Color.Blue Then
             PictureBox9.Image = Image.FromFile("OK.jpg")
@@ -260,8 +201,8 @@ Public Class frmMain
             flag(6) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd2Pu11Temp.ForeColor = If(Temp(7) >= tempMin And Temp(7) <= tempMax, Color.Blue, Color.Red)
-        lblPd2Pu11Humid.ForeColor = If(humd(7) >= humidMin And humd(7) <= humidMax, Color.Blue, Color.Red)
+        lblPd2Pu11Temp.ForeColor = If(dicArea.Item("PD2_PU1_1")._temp >= setting._tempMin And dicArea.Item("PD2_PU1_1")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd2Pu11Humid.ForeColor = If(dicArea.Item("PD2_PU1_1")._humid >= setting._humidMin And dicArea.Item("PD2_PU1_1")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd2Pu11Temp.ForeColor = Color.Blue And lblPd2Pu11Humid.ForeColor = Color.Blue Then
             PictureBox10.Image = Image.FromFile("OK.jpg")
@@ -271,8 +212,8 @@ Public Class frmMain
             flag(7) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd2Pu12Temp.ForeColor = If(Temp(8) >= tempMin And Temp(8) <= tempMax, Color.Blue, Color.Red)
-        lblPd2Pu12Humid.ForeColor = If(humd(8) >= humidMin And humd(8) <= humidMax, Color.Blue, Color.Red)
+        lblPd2Pu12Temp.ForeColor = If(dicArea.Item("PD2_PU1_2")._temp >= setting._tempMin And dicArea.Item("PD2_PU1_2")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd2Pu12Humid.ForeColor = If(dicArea.Item("PD2_PU1_2")._humid >= setting._humidMin And dicArea.Item("PD2_PU1_2")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd2Pu12Temp.ForeColor = Color.Blue And lblPd2Pu12Humid.ForeColor = Color.Blue Then
             PictureBox11.Image = Image.FromFile("OK.jpg")
@@ -282,8 +223,8 @@ Public Class frmMain
             flag(8) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd1Fat1Temp.ForeColor = If(Temp(9) >= tempMin And Temp(9) <= tempMax, Color.Blue, Color.Red)
-        lblPd1Fat1Humid.ForeColor = If(humd(9) >= humidMin And humd(9) <= humidMax, Color.Blue, Color.Red)
+        lblPd1Fat1Temp.ForeColor = If(dicArea.Item("PD1_FAT_1")._temp >= setting._tempMin And dicArea.Item("PD1_FAT_1")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Fat1Humid.ForeColor = If(dicArea.Item("PD1_FAT_1")._humid >= setting._humidMin And dicArea.Item("PD1_FAT_1")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd1Fat1Temp.ForeColor = Color.Blue And lblPd1Fat1Humid.ForeColor = Color.Blue Then
             PictureBox7.Image = Image.FromFile("OK.jpg")
@@ -293,8 +234,8 @@ Public Class frmMain
             flag(9) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd1Fat2Temp.ForeColor = If(Temp(10) >= tempMin And Temp(10) <= tempMax, Color.Blue, Color.Red)
-        lblPd1Fat2Humid.ForeColor = If(humd(10) >= humidMin And humd(10) <= humidMax, Color.Blue, Color.Red)
+        lblPd1Fat2Temp.ForeColor = If(dicArea.Item("PD1_FAT_2")._temp >= setting._tempMin And dicArea.Item("PD1_FAT_2")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Fat2Humid.ForeColor = If(dicArea.Item("PD1_FAT_2")._humid >= setting._humidMin And dicArea.Item("PD1_FAT_2")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd1Fat2Temp.ForeColor = Color.Blue And lblPd1Fat2Humid.ForeColor = Color.Blue Then
             PictureBox8.Image = Image.FromFile("OK.jpg")
@@ -304,8 +245,8 @@ Public Class frmMain
             flag(10) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd1SpotTemp.ForeColor = If(Temp(11) >= tempMin And Temp(11) <= tempMax, Color.Blue, Color.Red)
-        lblPd1SpotHumid.ForeColor = If(humd(11) >= humidMin And humd(11) <= humidMax, Color.Blue, Color.Red)
+        lblPd1SpotTemp.ForeColor = If(dicArea.Item("PD1_SPOT WEDING")._temp >= setting._tempMin And dicArea.Item("PD1_SPOT WEDING")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1SpotHumid.ForeColor = If(dicArea.Item("PD1_SPOT WEDING")._humid >= setting._humidMin And dicArea.Item("PD1_SPOT WEDING")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPd1SpotTemp.ForeColor = Color.Blue And lblPd1SpotHumid.ForeColor = Color.Blue Then
             PictureBox12.Image = Image.FromFile("OK.jpg")
@@ -315,8 +256,8 @@ Public Class frmMain
             flag(11) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd1Print1Temp.ForeColor = If(Temp(12) >= PRINT_TEMP_MIN And Temp(12) <= PRINT_TEMP_MAX, Color.Blue, Color.Red)
-        lblPd1Print1Humid.ForeColor = If(humd(12) >= PRINT_HUMID_MIN And humd(12) <= PRINT_HUMID_MAX, Color.Blue, Color.Red)
+        lblPd1Print1Temp.ForeColor = If(dicArea.Item("PD1_PRINT_1")._temp >= setting._printTempMin And dicArea.Item("PD1_PRINT_1")._temp <= setting._printTempMax, Color.Blue, Color.Red)
+        lblPd1Print1Humid.ForeColor = If(dicArea.Item("PD1_PRINT_1")._humid >= setting._printHumidMin And dicArea.Item("PD1_PRINT_1")._humid <= setting._printHumidMax, Color.Blue, Color.Red)
 
         If lblPd1Print1Temp.ForeColor = Color.Blue And lblPd1Print1Humid.ForeColor = Color.Blue Then
             PictureBox13.Image = Image.FromFile("OK.jpg")
@@ -326,8 +267,8 @@ Public Class frmMain
             flag(12) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd1Print2Temp.ForeColor = If(Temp(13) >= PRINT_TEMP_MIN And Temp(13) <= PRINT_TEMP_MAX, Color.Blue, Color.Red)
-        lblPd1Print2Humid.ForeColor = If(humd(13) >= PRINT_HUMID_MIN And humd(13) <= PRINT_HUMID_MAX, Color.Blue, Color.Red)
+        lblPd1Print2Temp.ForeColor = If(dicArea.Item("PD1_PRINT_2")._temp >= setting._printTempMin And dicArea.Item("PD1_PRINT_2")._temp <= setting._printTempMax, Color.Blue, Color.Red)
+        lblPd1Print2Humid.ForeColor = If(dicArea.Item("PD1_PRINT_2")._humid >= setting._printHumidMin And dicArea.Item("PD1_PRINT_2")._humid <= setting._printHumidMax, Color.Blue, Color.Red)
 
         If lblPd1Print2Temp.ForeColor = Color.Blue And lblPd1Print2Humid.ForeColor = Color.Blue Then
             PictureBox14.Image = Image.FromFile("OK.jpg")
@@ -337,8 +278,8 @@ Public Class frmMain
             flag(13) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPd1Print3Temp.ForeColor = If(Temp(14) >= PRINT_TEMP_MIN And Temp(14) <= PRINT_TEMP_MAX, Color.Blue, Color.Red)
-        lblPd1Print3Humid.ForeColor = If(humd(14) >= PRINT_HUMID_MIN And humd(14) <= PRINT_HUMID_MAX, Color.Blue, Color.Red)
+        lblPd1Print3Temp.ForeColor = If(dicArea.Item("PD1_PRINT_3")._temp >= setting._printTempMin And dicArea.Item("PD1_PRINT_3")._temp <= setting._printTempMax, Color.Blue, Color.Red)
+        lblPd1Print3Humid.ForeColor = If(dicArea.Item("PD1_PRINT_3")._humid >= setting._printHumidMin And dicArea.Item("PD1_PRINT_3")._humid <= setting._printHumidMax, Color.Blue, Color.Red)
 
         If lblPd1Print3Temp.ForeColor = Color.Blue And lblPd1Print3Humid.ForeColor = Color.Blue Then
             PictureBox15.Image = Image.FromFile("OK.jpg")
@@ -348,8 +289,8 @@ Public Class frmMain
             flag(14) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
-        lblPc12Temp.ForeColor = If(Temp(15) >= tempMin And Temp(15) <= tempMax, Color.Blue, Color.Red)
-        lblPC12Humid.ForeColor = If(humd(15) >= humidMin And humd(15) <= humidMax, Color.Blue, Color.Red)
+        lblPc12Temp.ForeColor = If(dicArea.Item("PC1_2")._temp >= setting._tempMin And dicArea.Item("PC1_2")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPC12Humid.ForeColor = If(dicArea.Item("PC1_2")._humid >= setting._humidMin And dicArea.Item("PC1_2")._humid <= setting._humidMax, Color.Blue, Color.Red)
 
         If lblPc12Temp.ForeColor = Color.Blue And lblPC12Humid.ForeColor = Color.Blue Then
             PictureBox17.Image = Image.FromFile("OK.jpg")
@@ -364,13 +305,9 @@ Public Class frmMain
             Label35.ForeColor = Color.Red
             Label35.Text = "Alarm"
             Timer2.Enabled = True
-            'If alarm_again <= 0 Then
-            '    alarm_again = ALARM_AG
-            'End If
             If COUNT_ALARM = 0 Then
                 'i = i + 1
                 AxWindowsMediaPlayer1.Ctlcontrols.play()
-
 
                 If flag(1) = False Then
                     Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH: mm:ss"), lblMc1.Text, lblMc1Temp.Text, lblMc1Humid.Text)
@@ -459,12 +396,12 @@ Public Class frmMain
                     content.Append(String.Format("<td>{0}</td>", obj._no))
                     content.Append(String.Format("<td>{0}</td>", obj._time))
                     content.Append(String.Format("<td>{0}</td>", obj._area))
-                    If Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) < Convert.ToDouble(tempMin) Or Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) > Convert.ToDouble(tempMax) Then
+                    If Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) < Convert.ToDouble(setting._tempMin) Or Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) > Convert.ToDouble(setting._tempMax) Then
                         content.Append(String.Format("<td style='background-color: Red'>{0}</td>", obj._temp))
                     Else
                         content.Append(String.Format("<td>{0}</td>", obj._temp))
                     End If
-                    If Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) < Convert.ToInt32(humidMin) Or Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) > Convert.ToInt32(humidMax) Then
+                    If Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) < Convert.ToInt32(setting._humidMin) Or Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) > Convert.ToInt32(setting._humidMax) Then
                         content.Append(String.Format("<td style='background-color: Red'>{0}</td>", obj._humid))
                     Else
                         content.Append(String.Format("<td>{0}</td>", obj._humid))
@@ -480,10 +417,10 @@ Public Class frmMain
                     For Each obj In lstObjLog
                         Dim sttTemp As String = "OK"
                         Dim sttHumid As String = "OK"
-                        If Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) < Convert.ToDouble(tempMin) Or Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) > Convert.ToDouble(tempMax) Then
+                        If Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) < Convert.ToDouble(setting._tempMin) Or Convert.ToDouble(Microsoft.VisualBasic.Left(obj._temp, 4)) > Convert.ToDouble(setting._tempMax) Then
                             sttTemp = "NG"
                         End If
-                        If Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) < Convert.ToInt32(humidMin) Or Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) > Convert.ToInt32(humidMax) Then
+                        If Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) < Convert.ToInt32(setting._humidMin) Or Convert.ToInt32(Microsoft.VisualBasic.Left(obj._humid, 3).Trim()) > Convert.ToInt32(setting._humidMax) Then
                             sttHumid = "NG"
                         End If
                         outFile.WriteLine(Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & obj._area & "," & obj._temp & " (" & sttTemp & ")" & "," & obj._humid & " (" & sttHumid & ")")
@@ -548,20 +485,18 @@ Public Class frmMain
                     emailContent.Append("
                             </body>
                             </html>")
-                    Common.SendListEmail(listEmail, emailContent)
+                    SendListEmail(listEmail, emailContent)
                 End If
 
                 WebBrowser2.DocumentText = Common.CreateHTML(tempRange, humidRange, content)
 #End Region
             End If
-            'alarm_again = alarm_again - 1
 
         Else
 
             Label35.ForeColor = Color.Blue
             Label35.Text = "OK"
             Timer2.Enabled = False
-            alarm_again = ALARM_AG               '30 phut alarm lai 1 lan/
             AxWindowsMediaPlayer1.Ctlcontrols.stop()
 
         End If
@@ -569,32 +504,19 @@ Public Class frmMain
 
     End Sub
     Private Sub alarm()
-        If Label35.Text = "Alarm" Then
-            Label35.Text = ""
-        Else
-            Label35.Text = "Alarm"
-        End If
+        Label35.Text = If(Label35.Text = "Alarm", "", "Alarm")
     End Sub
     Private Sub Daily_log()
         'Declare Ca
         Dim ca As String
         ca = If(Now.Hour >= 8 And Now.Hour <= 20, "HC", "D")
-        'Khai báo thư mục chứa file lưu STT
-        'Dim textFile As String = My.Application.Info.DirectoryPath & "\Setup\State.txt"
-
-        'Dim temp = Convert.ToInt32(Common.ReadTextFile(textFile, 2))
-        ''Nếu file text chưa có giá trị thì tăng biến count
-        'If temp = 0 Then
-        '    count = count + 1
-        'Else count = Convert.ToInt32(Common.ReadTextFile(textFile, 2)) + 1
-        'End If
 #Region "Create Report"
         Dim outFile As IO.StreamWriter
         '**********************************************************************************************************************
         'MC1
         Dim csvFileMCbk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblMc1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         ' Create Header
-        If File.Exists(csvFileMCbk) = False Then
+        If Not File.Exists(csvFileMCbk) Then
             File.Create(csvFileMCbk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileMCbk, True)
             outFile.WriteLine("Area name:," & lblMc1.Text)
@@ -1063,8 +985,6 @@ Public Class frmMain
             check_alarm()
             Timer4.Enabled = True
             WriteLogHtml()
-            'quyetpham add 23/9
-            'Timer6.Enabled = True
         End If
     End Sub
 
@@ -1073,11 +993,8 @@ Public Class frmMain
     End Sub
 
     Private Sub Timer3_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer3.Tick
-        lblDateVN.Text = Now.ToString("dd/MM/yyyy HH:mm:ss")
         lblDateJp.Text = Now.ToString("M月 d日")
-        'Dim reset = Common.ReadTextFile(filePath, 11)
-        Dim timeReset = Common.Search(filePath, "Reset Log")
-        If Now.ToString("HH:mm:ss") = timeReset Then
+        If Now.ToString("HH:mm:ss") = setting._resetLog Then
             check_alarm()
             lstObjLog = New List(Of ObjLog)
             WebBrowser2.DocumentText = Common.CreateHTML(tempRange, humidRange, Nothing)
@@ -1087,46 +1004,31 @@ Public Class frmMain
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'WebBrowser2.Refresh()
-        Me.Text = "UMC Electronics Viet Nam ver " & My.Application.Info.Version.ToString() & " Beta"
-        AxWindowsMediaPlayer1.URL = "D:\1.mp3"
-        AxWindowsMediaPlayer1.Ctlcontrols.stop()
-        ' Quyetpv
-        Timer1.Interval = Convert.ToDouble(Common.Search(filePath, "Reload"))
-        Timer4.Interval = Convert.ToDouble(Common.Search(filePath, "create log"))
-        Timer5.Start()
         WebBrowser1.ScriptErrorsSuppressed = True
-        If Directory.Exists("Log_Report") = False Then Directory.CreateDirectory("Log_Report")
-        If Directory.Exists("Backup") = False Then Directory.CreateDirectory("Backup")
-        If Directory.Exists("Log_Alarm") = False Then Directory.CreateDirectory("Log_Alarm")
-        If Directory.Exists("Setup") = False Then Directory.CreateDirectory("Setup")
-        'Doc du lieu ve nhiet do
-        Dim temp As String = Common.Search(filePath, "Temp").Trim()
-        'tempMin = Convert.ToDouble(Common.GetListnumber(temp)(0))
-        'tempMax = Convert.ToDouble(Common.GetListnumber(temp)(1))
-        tempMin = Convert.ToDouble(Microsoft.VisualBasic.Left(temp, 2))
-        tempMax = Convert.ToDouble(Microsoft.VisualBasic.Right(temp, 2))
-        'Set temp to label
-        'lblTemp.Text = tempMin & " C - " & tempMax & " C"
-        tempRange = tempMin & " C - " & tempMax & " C"
-
-        'Doc du lieu ve do am
-        Dim humid As String = Common.Search(filePath, "Humid").Trim()
-        humidMin = Convert.ToInt32(Microsoft.VisualBasic.Left(humid, 2))
-        humidMax = Convert.ToInt32(Microsoft.VisualBasic.Right(humid, 2))
-        ' Chua xu li duoc truong hop duplicate
-        'humidMin = Convert.ToInt32(Common.GetListnumber(humid)(0))
-        'humidMax = Convert.ToInt32(Common.GetListnumber(humid)(1))
-        'lblHumid.Text = humidMin & "% - " & humidMax & "%"
-        humidRange = humidMin & "% - " & humidMax & "%"
-        listEmail = Common.FindEmail(filePath)
-        'WebBrowser2.DocumentText = Common.CreateHTML(lblTemp.Text, lblHumid.Text, Nothing)
+        If Not File.Exists(pathConfig) Then Common.SaveInitSystem(setting, pathConfig)
+        If Not Directory.Exists("Log_Report") Then Directory.CreateDirectory("Log_Report")
+        If Not Directory.Exists("Backup") Then Directory.CreateDirectory("Backup")
+        If Not Directory.Exists("Log_Alarm") Then Directory.CreateDirectory("Log_Alarm")
+        If Not Directory.Exists("Setup") Then Directory.CreateDirectory("Setup")
+        LoadComponent()
+    End Sub
+    Private Sub LoadComponent()
+        SystemSetting.ReadXML(Of SystemSetting)(setting, pathConfig)
+        Timer1.Interval = setting._reloadWebInterval
+        Timer4.Interval = setting._createLogInterval
+        Timer5.Start()
+        tempRange = setting._tempMin & " C - " & setting._tempMax & " C"
+        humidRange = setting._humidMin & "% - " & setting._humidMax & "%"
+        listEmail = Common.FindEmail(pathEmail)
         WebBrowser2.DocumentText = Common.CreateHTML(tempRange, humidRange, Nothing)
+        AxWindowsMediaPlayer1.URL = setting._mp3
+        AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        Me.Text = setting._title & My.Application.Info.Version.ToString()
     End Sub
     Private Sub txtPass_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPass.KeyDown
         Dim pass = txtPass.Text
         If e.KeyCode = Keys.Enter Then
-            If pass = "umcvn" Then
+            If pass = setting._passConfig Then
                 Dim frmMaster As New frmMaster()
                 frmMaster.ShowDialog()
                 frmMaster.StartPosition = FormStartPosition.CenterScreen
@@ -1182,7 +1084,7 @@ Public Class frmMain
                             </body>
                             </html>
             ")
-            Common.SendListEmail(listEmail, waringConnect)
+            SendListEmail(listEmail, waringConnect)
         End If
 
     End Sub
@@ -1201,35 +1103,69 @@ Public Class frmMain
         Dim pathLog As String = Environment.CurrentDirectory & "\Html\data.txt"
         stream = My.Computer.FileSystem.OpenTextFileWriter(pathLog, False)
         stream.WriteLine("#1. MC standar, temp, humid, connection")
-        stream.WriteLine(flag(1) & "," & Temp(1) & "," & humd(1) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("MC"))._time, TIMEOUT))
+        stream.WriteLine(flag(1) & "," & dicArea.Item("MC")._temp & "," & dicArea.Item("MC")._humid & "," & Common.WaringConnect(dicArea.Item("MC")._time, setting._connectionWarning))
         stream.WriteLine("#2. PC standar, temp, humid, connection")
-        stream.WriteLine(flag(2) & "," & Temp(2) & "," & humd(2) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PC"))._time, TIMEOUT))
+        stream.WriteLine(flag(2) & "," & dicArea.Item("PC")._temp & "," & dicArea.Item("PC")._humid & "," & Common.WaringConnect(dicArea.Item("PC")._time, setting._connectionWarning))
         stream.WriteLine("#3. PD1-SMT standar, temp, humid, connection")
-        stream.WriteLine(flag(3) & "," & Temp(3) & "," & humd(3) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SMT"))._time, TIMEOUT))
+        stream.WriteLine(flag(3) & "," & dicArea.Item("PD1_SMT")._temp & "," & dicArea.Item("PD1_SMT")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_SMT")._time, setting._connectionWarning))
         stream.WriteLine("#4. MC2 standar, temp, humid, connection")
-        stream.WriteLine(flag(4) & "," & Temp(4) & "," & humd(4) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("MC2"))._time, TIMEOUT))
+        stream.WriteLine(flag(4) & "," & dicArea.Item("MC2")._temp & "," & dicArea.Item("MC2")._humid & "," & Common.WaringConnect(dicArea.Item("MC2")._time, setting._connectionWarning))
         stream.WriteLine("#5. PC2 standar, temp, humid, connection")
-        stream.WriteLine(flag(5) & "," & Temp(5) & "," & humd(5) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PC2"))._time, TIMEOUT))
+        stream.WriteLine(flag(5) & "," & dicArea.Item("PC2")._temp & "," & dicArea.Item("PC2")._humid & "," & Common.WaringConnect(dicArea.Item("PC2")._time, setting._connectionWarning))
         stream.WriteLine("#6. PD2-SMT standar, temp, humid, connection")
-        stream.WriteLine(flag(6) & "," & Temp(6) & "," & humd(6) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_SMT"))._time, TIMEOUT))
+        stream.WriteLine(flag(6) & "," & dicArea.Item("PD2_SMT")._temp & "," & dicArea.Item("PD2_SMT")._humid & "," & Common.WaringConnect(dicArea.Item("PD2_SMT")._time, setting._connectionWarning))
         stream.WriteLine("#7. PD2-PU1-1 standar, temp, humid, connection")
-        stream.WriteLine(flag(7) & "," & Temp(7) & "," & humd(7) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_PU1_1"))._time, TIMEOUT))
+        stream.WriteLine(flag(7) & "," & dicArea.Item("PD2_PU1_1")._temp & "," & dicArea.Item("PD2_PU1_1")._humid & "," & Common.WaringConnect(dicArea.Item("PD2_PU1_1")._time, setting._connectionWarning))
         stream.WriteLine("#8. PD2-PU1-2 standar, temp, humid, connection")
-        stream.WriteLine(flag(8) & "," & Temp(8) & "," & humd(8) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD2_PU1_2"))._time, TIMEOUT))
+        stream.WriteLine(flag(8) & "," & dicArea.Item("PD2_PU1_2")._temp & "," & dicArea.Item("PD2_PU1_2")._humid & "," & Common.WaringConnect(dicArea.Item("PD2_PU1_2")._time, setting._connectionWarning))
         stream.WriteLine("#9. PD1-FAT-1 standar, temp, humid, connection")
-        stream.WriteLine(flag(9) & "," & Temp(9) & "," & humd(9) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_1"))._time, TIMEOUT))
+        stream.WriteLine(flag(9) & "," & dicArea.Item("PD1_FAT_1")._temp & "," & dicArea.Item("PD1_FAT_1")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_FAT_1")._time, setting._connectionWarning))
         stream.WriteLine("#10. PD1-FAT-2 standar, temp, humid, connection")
-        stream.WriteLine(flag(10) & "," & Temp(10) & "," & humd(10) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_FAT_2"))._time, TIMEOUT))
+        stream.WriteLine(flag(10) & "," & dicArea.Item("PD1_FAT_2")._temp & "," & dicArea.Item("PD1_FAT_2")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_FAT_2")._time, setting._connectionWarning))
         stream.WriteLine("#11. PD1-SPOT standar, temp, humid, connection")
-        stream.WriteLine(flag(11) & "," & Temp(11) & "," & humd(11) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_SPOT WEDING"))._time, TIMEOUT))
+        stream.WriteLine(flag(11) & "," & dicArea.Item("PD1_SPOT WEDING")._temp & "," & dicArea.Item("PD1_SPOT WEDING")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_SPOT WEDING")._time, setting._connectionWarning))
         stream.WriteLine("#12. PD1-PRINT-1 standar, temp, humid, connection")
-        stream.WriteLine(flag(12) & "," & Temp(12) & "," & humd(12) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_1"))._time, TIMEOUT))
+        stream.WriteLine(flag(12) & "," & dicArea.Item("PD1_PRINT_1")._temp & "," & dicArea.Item("PD1_PRINT_1")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_PRINT_1")._time, setting._connectionWarning))
         stream.WriteLine("#13. PD1-PRINT-2 standar, temp, humid, connection")
-        stream.WriteLine(flag(13) & "," & Temp(13) & "," & humd(13) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_2"))._time, TIMEOUT))
+        stream.WriteLine(flag(13) & "," & dicArea.Item("PD1_PRINT_2")._temp & "," & dicArea.Item("PD1_PRINT_2")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_PRINT_2")._time, setting._connectionWarning))
         stream.WriteLine("#14. PD1-PRINT-3 standar, temp, humid, connection")
-        stream.WriteLine(flag(14) & "," & Temp(14) & "," & humd(14) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PD1_PRINT_3"))._time, TIMEOUT))
+        stream.WriteLine(flag(14) & "," & dicArea.Item("PD1_PRINT_3")._temp & "," & dicArea.Item("PD1_PRINT_3")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_PRINT_3")._time, setting._connectionWarning))
         stream.WriteLine("#15. PC1_2 standar, temp, humid, connection")
-        stream.WriteLine(flag(15) & "," & Temp(15) & "," & humd(15) & "," & Common.WaringConnect(listArea.FirstOrDefault(Function(p) p._area.Equals("PC1_2"))._time, TIMEOUT))
+        stream.WriteLine(flag(15) & "," & dicArea.Item("PC1_2")._temp & "," & dicArea.Item("PC1_2")._humid & "," & Common.WaringConnect(dicArea.Item("PC1_2")._time, setting._connectionWarning))
         stream.Close()
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        Dim frmAbout As New frmAbout
+        frmAbout.ShowDialog()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+    Sub SendListEmail(ByVal listEmail As List(Of String), ByVal content As StringBuilder)
+        Try
+            Dim Smtp_Server As New SmtpClient
+            Dim e_mail As New MailMessage()
+            Smtp_Server.UseDefaultCredentials = False
+            Smtp_Server.Credentials = New Net.NetworkCredential(setting._email, setting._emailPass)
+            Smtp_Server.Port = 587
+            Smtp_Server.EnableSsl = True
+            Smtp_Server.Host = "smtp.gmail.com"
+            '--------------------------------------------  
+            For Each email In listEmail
+                e_mail = New MailMessage()
+                e_mail.From = New MailAddress(setting._email)
+                Dim emai = New MailAddress(email)
+                e_mail.To.Add(emai)
+                e_mail.Subject = "Alarm Temp and Humid in UMCVN"
+                e_mail.IsBodyHtml = True
+                e_mail.Body = content.ToString()
+                Smtp_Server.Send(e_mail)
+            Next
+
+        Catch error_t As Exception
+            MsgBox(error_t.ToString)
+        End Try
     End Sub
 End Class

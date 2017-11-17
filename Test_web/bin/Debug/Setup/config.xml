@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <tempMin>15</tempMin>
+  <tempMax>29</tempMax>
+  <humidMin>40</humidMin>
+  <humidMax>70</humidMax>
+  <reloadWebInterval>100000</reloadWebInterval>
+  <createLogInterval>600000</createLogInterval>
+  <resetLog>08:00:00</resetLog>
+  <passConfig>umcvn</passConfig>
+  <title>UMC Electronics Viet Nam </title>
+  <connectionWaring>59</connectionWaring>
+  <printTempMin>22</printTempMin>
+  <printTempMax>28</printTempMax>
+  <printHumidMin>40</printHumidMin>
+  <printHumidMax>60</printHumidMax>
+  <username>tdgd9370</username>
+  <password>cuongadn90</password>
+  <email>UMCVN.Temp.Humi@gmail.com</email>
+  <emailPass>umcvn2017</emailPass>
+  <mp3>C:\Users\u23702\Downloads\toolur_kajFWx.mp3</mp3>
+</configuration>

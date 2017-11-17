@@ -34,32 +34,6 @@ Public Class Common
         End If
         Return counterLine
     End Function
-    Shared Function SendListEmail(ByVal listEmail As List(Of String), ByVal content As StringBuilder) As Boolean
-        Try
-            Dim Smtp_Server As New SmtpClient
-            Dim e_mail As New MailMessage()
-            Smtp_Server.UseDefaultCredentials = False
-            Smtp_Server.Credentials = New Net.NetworkCredential("UMCVN.Temp.Humi@gmail.com", "umcvn2017")
-            Smtp_Server.Port = 587
-            Smtp_Server.EnableSsl = True
-            Smtp_Server.Host = "smtp.gmail.com"
-            '--------------------------------------------  
-            For Each email In listEmail
-                e_mail = New MailMessage()
-                e_mail.From = New MailAddress("UMCVN.Temp.Humi@gmail.com")
-                Dim emai = New MailAddress(email)
-                e_mail.To.Add(emai)
-                e_mail.Subject = "Alarm Temp and Humid in UMCVN"
-                e_mail.IsBodyHtml = True
-                e_mail.Body = content.ToString()
-                Smtp_Server.Send(e_mail)
-            Next
-            Return True
-        Catch error_t As Exception
-            MsgBox(error_t.ToString)
-        End Try
-        Return False
-    End Function
     Public Shared Function CompareFiles(ByVal file1FullPath As String, ByVal file2FullPath As String) As Boolean
 
         If Not File.Exists(file1FullPath) Or Not File.Exists(file2FullPath) Then
@@ -185,6 +159,11 @@ Public Class Common
 
         Return emailExpression.IsMatch(email)
     End Function
+    Shared Function IsTime(ByVal time As String) As Integer
+
+        Static timeExpression As New Regex("^([0-1]\d|2[0-3]):([0-5]\d)(:([0-5]\d))?$")
+        Return timeExpression.IsMatch(time)
+    End Function
     ''' <summary>
     ''' Tìm kiếm email trong file text
     ''' </summary>
@@ -194,14 +173,6 @@ Public Class Common
         Dim result As List(Of String) = New List(Of String)
         Try
             result = File.ReadAllLines(filePath).Where(Function(p) IsEmail(p)).ToList
-            'Dim objReader As New System.IO.StreamReader(filePath)
-            'While Not (objReader.Peek() = -1)
-            '    Dim email As String = objReader.ReadLine
-            '    If IsEmail(email) Then
-            '        lst.Add(email)
-            '    End If
-            'End While
-            'objReader.Close()
         Catch ex As Exception
             MsgBox("Error " & ex.ToString)
         End Try
@@ -258,7 +229,6 @@ Public Class Common
             If (Char.IsNumber(c)) Then
                 numbers.Append(c)
             End If
-            'If ((Char.IsNumber(c) = False And numbers.Length > 0) Or (Char.IsNumber(c) And c = chars.Last())) Then
             If ((Char.IsNumber(c) = False And numbers.Length > 0) Or (Char.IsNumber(c) And c = chars.Last())) Then
                 Console.WriteLine(input.IndexOf(c))
                 Console.WriteLine(chars.Length - 1)
@@ -283,5 +253,29 @@ Public Class Common
             result = "older data"
         End If
         Return result
+    End Function
+    Shared Function SaveInitSystem(ByVal setting As SystemSetting, ByVal path As String) As Integer
+        setting = New SystemSetting()
+        setting._tempMin = 15
+        setting._tempMax = 29
+        setting._humidMin = 40
+        setting._humidMax = 70
+        setting._reloadWebInterval = 100000
+        setting._createLogInterval = 600000
+        setting._resetLog = "08:00:00"
+        setting._passConfig = "umcvn"
+        setting._title = "UMC Electronics Viet Nam "
+        setting._connectionWarning = 59
+        setting._printTempMin = 22
+        setting._printTempMax = 28
+        setting._printHumidMin = 40
+        setting._printHumidMax = 60
+        setting._username = "tdgd9370"
+        setting._password = "cuongadn90"
+        setting._email = "UMCVN.Temp.Humi@gmail.com"
+        setting._emailPass = "umcvn2017"
+        setting._mp3 = "D:\1.mp3"
+        SystemSetting.WriteXML(Of SystemSetting)(setting, path)
+        Return 0
     End Function
 End Class
