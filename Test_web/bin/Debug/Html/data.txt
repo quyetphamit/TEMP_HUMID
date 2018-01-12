@@ -1,33 +1,33 @@
 ﻿#1. MC standar, temp, humid, connection warning
-False,24.9,37,False
+False,24.8,38,False
 #2. PC standar, temp, humid, connection warning
 True,26.0,63,True
 #3. PD1-SMT standar, temp, humid, connection warning
-True,25.7,43,False
+False,25.0,37,False
 #4. MC2 standar, temp, humid, connection warning
-True,22.8,49,False
+True,22.7,48,False
 #5. PC2 standar, temp, humid, connection warning
-False,24.4,28,False
+False,24.6,27,False
 #6. PD2-SMT standar, temp, humid, connection warning
-True,25.5,42,False
+True,25.6,41,False
 #7. PD2-PU1-1 standar, temp, humid, connection warning
-True,26.0,40,False
+False,26.1,39,False
 #8. PD2-PU1-2 standar, temp, humid, connection warning
-True,25.7,44,False
+True,25.5,43,False
 #9. PD1-FAT-1 standar, temp, humid, connection warning
-True,23.4,46,False
+True,25.4,43,False
 #10. PD1-FAT-2 standar, temp, humid, connection warning
-False,26.3,37,False
+False,26.6,33,False
 #11. PD1-SPOT standar, temp, humid, connection warning
-True,24.9,43,False
+True,24.8,43,False
 #12. PD1-PRINT-1 standar, temp, humid, connection warning
-True,25.9,46,False
+True,25.2,41,False
 #13. PD1-PRINT-2 standar, temp, humid, connection warning
-True,27.1,41,False
+False,26.7,37,False
 #14. PD1-PRINT-3 standar, temp, humid, connection warning
-True,25.0,42,False
+False,24.5,37,False
 #15. PC1_2 standar, temp, humid, connection warning
-False,22.5,39,False
+False,22.1,39,False
 #16. FUJI standar, temp, humid, connection warning
 True,21.2,51,True
 #17. SE-1 standar, temp, humid, connection warning

@@ -651,10 +651,12 @@ Public Class frmMain
         Dim ca As String = If(Now.Hour >= 8 And Now.Hour <= 20, "HC", "D")
 #Region "Create Report"
         Dim outFile As IO.StreamWriter
+        Dim pathLog = My.Application.Info.DirectoryPath & "\Log_Report\"
+        Dim pathBackup = My.Application.Info.DirectoryPath & "\Backup\"
         '**********************************************************************************************************************
         'MC1
-        Dim csvFileMCbk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblMc1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
-        ' Create Header
+        Dim csvFileMCbk As String = pathBackup & lblMc1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+#Region "Create Header"
         If Not File.Exists(csvFileMCbk) Then
             File.Create(csvFileMCbk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileMCbk, True)
@@ -677,7 +679,7 @@ Public Class frmMain
         '**********************************************************************************************************************
 
         'PC1
-        Dim csvFilePCbk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPc1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePCbk As String = pathBackup & lblPc1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePCbk) = False Then
             File.Create(csvFilePCbk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePCbk, True)
@@ -700,7 +702,7 @@ Public Class frmMain
         '**********************************************************************************************************************
 
         'PD1-SMT
-        Dim csvFilePd1Smtbk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Smt.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Smtbk As String = pathBackup & lblPd1Smt.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Smtbk) = False Then
             File.Create(csvFilePd1Smtbk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Smtbk, True)
@@ -722,7 +724,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'MC2
-        Dim csvFileMC2bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblMc2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFileMC2bk As String = pathBackup & lblMc2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFileMC2bk) = False Then
             File.Create(csvFileMC2bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileMC2bk, True)
@@ -744,7 +746,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PC2
-        Dim csvFilePC2bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPc2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePC2bk As String = pathBackup & lblPc2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePC2bk) = False Then
             File.Create(csvFilePC2bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePC2bk, True)
@@ -766,7 +768,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD2_SMT
-        Dim csvFilePd2Smtbk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd2Smt.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd2Smtbk As String = pathBackup & lblPd2Smt.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd2Smtbk) = False Then
             File.Create(csvFilePd2Smtbk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd2Smtbk, True)
@@ -788,7 +790,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         ' PD2_PU1_1
-        Dim csvFilePd2Pu11bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd2Pu11.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd2Pu11bk As String = pathBackup & lblPd2Pu11.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd2Pu11bk) = False Then
             File.Create(csvFilePd2Pu11bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd2Pu11bk, True)
@@ -810,7 +812,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD2_PU1_2
-        Dim csvFilePd2Pu12bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd2Pu12.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd2Pu12bk As String = pathBackup & lblPd2Pu12.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd2Pu12bk) = False Then
             File.Create(csvFilePd2Pu12bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd2Pu12bk, True)
@@ -832,7 +834,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD1_FAT_1
-        Dim csvFilePd1Fat1bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Fat1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Fat1bk As String = pathBackup & lblPd1Fat1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Fat1bk) = False Then
             File.Create(csvFilePd1Fat1bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Fat1bk, True)
@@ -854,7 +856,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD1_FAT_2
-        Dim csvFilePd1Fat2bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Fat2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Fat2bk As String = pathBackup & lblPd1Fat2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Fat2bk) = False Then
             File.Create(csvFilePd1Fat2bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Fat2bk, True)
@@ -875,7 +877,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD1_SPOT
-        Dim csvFilePd1Spotbk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Spot.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Spotbk As String = pathBackup & lblPd1Spot.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Spotbk) = False Then
             File.Create(csvFilePd1Spotbk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Spotbk, True)
@@ -896,7 +898,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD1_PRINT_1
-        Dim csvFilePd1Print1bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Print1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Print1bk As String = pathBackup & lblPd1Print1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Print1bk) = False Then
             File.Create(csvFilePd1Print1bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Print1bk, True)
@@ -917,7 +919,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD1_PRINT_2
-        Dim csvFilePd1Print2bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Print2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Print2bk As String = pathBackup & lblPd1Print2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Print2bk) = False Then
             File.Create(csvFilePd1Print2bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Print2bk, True)
@@ -938,7 +940,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PD1_PRINT_3
-        Dim csvFilePd1Print3bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPd1Print3.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePd1Print3bk As String = pathBackup & lblPd1Print3.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePd1Print3bk) = False Then
             File.Create(csvFilePd1Print3bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePd1Print3bk, True)
@@ -959,7 +961,7 @@ Public Class frmMain
         End If
         '**********************************************************************************************************************
         'PC12
-        Dim csvFilePc12bk As String = My.Application.Info.DirectoryPath & "\Backup\" & lblPc12.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        Dim csvFilePc12bk As String = pathBackup & lblPc12.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
         If File.Exists(csvFilePc12bk) = False Then
             File.Create(csvFilePc12bk).Dispose()
             outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFilePc12bk, True)
@@ -978,22 +980,178 @@ Public Class frmMain
                 MessageBox.Show("Đóng file backup để tiến hành ghi Log")
             End Try
         End If
+        'Fuji
+        Dim csvFileFujibk As String = pathBackup & lblFuji.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileFujibk) = False Then
+            File.Create(csvFileFujibk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileFujibk, True)
+            outFile.WriteLine("Area name:," & lblFuji.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileFujibk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileFujibk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1FujiTemp.Text & "," & lblPd1FujiHumid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+        'Se-1
+        Dim csvFileSe1bk As String = pathBackup & lblSe1.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileSe1bk) = False Then
+            File.Create(csvFileSe1bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe1bk, True)
+            outFile.WriteLine("Area name:," & lblSe1.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileSe1bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe1bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1Se1Temp.Text & "," & lblPd1Se1Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+
+        'Se-2
+        Dim csvFileSe2bk As String = pathBackup & lblSe2.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileSe2bk) = False Then
+            File.Create(csvFileSe2bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe2bk, True)
+            outFile.WriteLine("Area name:," & lblSe2.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileSe2bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe2bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1Se2Temp.Text & "," & lblPd1Se2Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+
+
+        'Se-3
+        Dim csvFileSe3bk As String = pathBackup & lblSe3.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileSe3bk) = False Then
+            File.Create(csvFileSe3bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe3bk, True)
+            outFile.WriteLine("Area name:," & lblSe3.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileSe3bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe3bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1Se3Temp.Text & "," & lblPd1Se3Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+
+        'Se-4
+        Dim csvFileSe4bk As String = pathBackup & lblSe4.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileSe4bk) = False Then
+            File.Create(csvFileSe4bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe4bk, True)
+            outFile.WriteLine("Area name:," & lblSe4.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileSe4bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe4bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1Se4Temp.Text & "," & lblPd1Se4Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+
+        'Se-5
+        Dim csvFileSe5bk As String = pathBackup & lblSe5.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileSe5bk) = False Then
+            File.Create(csvFileSe5bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe5bk, True)
+            outFile.WriteLine("Area name:," & lblSe5.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileSe5bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe5bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1Se5Temp.Text & "," & lblPd1Se5Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+
+        'Se-6
+        Dim csvFileSe6bk As String = pathBackup & lblSe6.Text & "_" & Now.ToString("yyyyMM") & "_backup.csv"
+        If File.Exists(csvFileSe6bk) = False Then
+            File.Create(csvFileSe6bk).Dispose()
+            outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe6bk, True)
+            outFile.WriteLine("Area name:," & lblSe6.Text)
+            outFile.WriteLine()
+            outFile.WriteLine()
+            outFile.WriteLine("Ca,Time,Temp,Humid")
+            outFile.Close()
+        End If
+        If File.Exists(csvFileSe6bk) Then
+            Try
+                outFile = My.Computer.FileSystem.OpenTextFileWriter(csvFileSe6bk, True)
+                outFile.WriteLine(ca & "," & Now.ToString("dd/MM/yyyy HH:mm:ss") & "," & lblPd1Se6Temp.Text & "," & lblPd1Se6Humid.Text)
+                outFile.Close()
+            Catch ex As Exception
+                MessageBox.Show("Đóng file backup để tiến hành ghi Log")
+            End Try
+        End If
+
+#End Region
         '**********************************************************************************************************************
-        Dim csvFileMC As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblMc1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePC As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPc1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd2Smt As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd2Smt.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFileMC2 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblMc2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePC2 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPc2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Smt As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Smt.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd2Pu11 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd2Pu11.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd2Pu12 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd2Pu12.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Fat1 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Fat1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Fat2 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Fat2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Spot As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Spot.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Print1 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Print1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Print2 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Print2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePd1Print3 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPd1Print3.Text & "_" & Now.ToString("yyyyMM") & ".csv"
-        Dim csvFilePc12 As String = My.Application.Info.DirectoryPath & "\Log_Report\" & lblPc12.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileMC As String = pathLog & lblMc1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePC As String = pathLog & lblPc1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd2Smt As String = pathLog & lblPd2Smt.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileMC2 As String = pathLog & lblMc2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePC2 As String = pathLog & lblPc2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Smt As String = pathLog & lblPd1Smt.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd2Pu11 As String = pathLog & lblPd2Pu11.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd2Pu12 As String = pathLog & lblPd2Pu12.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Fat1 As String = pathLog & lblPd1Fat1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Fat2 As String = pathLog & lblPd1Fat2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Spot As String = pathLog & lblPd1Spot.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Print1 As String = pathLog & lblPd1Print1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Print2 As String = pathLog & lblPd1Print2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePd1Print3 As String = pathLog & lblPd1Print3.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFilePc12 As String = pathLog & lblPc12.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileFuji As String = pathLog & lblFuji.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileSe1 As String = pathLog & lblSe1.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileSe2 As String = pathLog & lblSe2.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileSe3 As String = pathLog & lblSe3.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileSe4 As String = pathLog & lblSe4.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileSe5 As String = pathLog & lblSe5.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+        Dim csvFileSe6 As String = pathLog & lblSe6.Text & "_" & Now.ToString("yyyyMM") & ".csv"
+
         'Check file
         If Common.CompareFiles(csvFileMC, csvFileMCbk) = False Then
             Try
@@ -1113,6 +1271,62 @@ Public Class frmMain
                 ' Hiển thị thông báo trong trường hợp file đang mở
             End Try
         End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileFuji, csvFileFujibk) = False Then
+            Try
+                File.Copy(csvFileFujibk, csvFileFuji, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileSe1, csvFileSe1bk) = False Then
+            Try
+                File.Copy(csvFileSe1bk, csvFileSe1, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileSe2, csvFileSe2bk) = False Then
+            Try
+                File.Copy(csvFileSe2bk, csvFileSe2, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileSe3, csvFileSe3bk) = False Then
+            Try
+                File.Copy(csvFileSe3bk, csvFileSe3, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileSe4, csvFileSe4bk) = False Then
+            Try
+                File.Copy(csvFileSe4bk, csvFileSe4, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileSe5, csvFileSe5bk) = False Then
+            Try
+                File.Copy(csvFileSe5bk, csvFileSe5, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
+        '-------------------------------------------------
+        If Common.CompareFiles(csvFileSe6, csvFileSe6bk) = False Then
+            Try
+                File.Copy(csvFileSe6bk, csvFileSe6, True)
+            Catch ex As Exception
+                ' Hiển thị thông báo trong trường hợp file đang mở
+            End Try
+        End If
         'Console.WriteLine(My.Computer.FileSystem.ReadAllText(csvFile))
 #End Region
     End Sub
@@ -1175,7 +1389,7 @@ Public Class frmMain
                 frmMaster.StartPosition = FormStartPosition.CenterScreen
                 txtPass.Clear()
             Else
-                MessageBox.Show("Mật khẩu sai", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("The password is incorrect", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 txtPass.SelectAll()
             End If
         End If
@@ -1316,7 +1530,9 @@ Public Class frmMain
                 e_mail.Subject = "Alarm Temp and Humid in UMCVN"
                 e_mail.IsBodyHtml = True
                 e_mail.Body = content.ToString()
-                Smtp_Server.Send(e_mail)
+                'Smtp_Server.Send(e_mail)
+                ' Gửi mail bất đồng bộ để tránh giật lag
+                Smtp_Server.SendAsync(e_mail, "The email from LCA")
             Next
 
         Catch error_t As Exception
