@@ -22,6 +22,7 @@ Public Class SystemSetting
     Private m__email As String
     Private m__emailPass As String
     Private m__mp3 As String
+    Private m__enableAlarmConnection As Boolean
     <XmlElement("tempMin")>
     Public Property _tempMin() As String
         Get
@@ -191,6 +192,15 @@ Public Class SystemSetting
         End Get
         Set
             m__mp3 = Value
+        End Set
+    End Property
+    <XmlElement("enableAlarmConnection")>
+    Public Property _enableAlarmConnection As String
+        Get
+            Return m__enableAlarmConnection
+        End Get
+        Set
+            m__enableAlarmConnection = Value
         End Set
     End Property
     Public Shared Function ReadXML(Of Type)(ByRef pClass As Type, pPath As String) As Integer

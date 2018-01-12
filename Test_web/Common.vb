@@ -275,6 +275,7 @@ Public Class Common
         setting._email = "UMCVN.Temp.Humi@gmail.com"
         setting._emailPass = "umcvn2017"
         setting._mp3 = "D:\1.mp3"
+        setting._enableAlarmConnection = True
         SystemSetting.WriteXML(Of SystemSetting)(setting, path)
         Return 0
     End Function

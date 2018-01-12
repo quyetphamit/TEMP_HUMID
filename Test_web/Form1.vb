@@ -7,10 +7,9 @@ Public Class frmMain
     Dim pathEmail As String = My.Application.Info.DirectoryPath & "\Setup\ListEmail.txt"
     Dim lstObjLog As List(Of ObjLog) = New List(Of ObjLog)
     Dim no As Integer = 0
-    Dim tempArea As List(Of String) = New List(Of String)
     Dim listEmail As List(Of String)
     Dim listArea As List(Of ObjLog)
-    Dim flag(20) As Boolean
+    Dim flag(25) As Boolean
     Dim tempRange As String
     Dim humidRange As String
     Dim COUNT_ALARM As Integer
@@ -18,6 +17,7 @@ Public Class frmMain
     Dim pathConfig As String = My.Application.Info.DirectoryPath & "\Setup\config.xml"
     Dim dicArea As Dictionary(Of String, ObjLog)
     Private Sub ReadfromWEB()
+        Dim tempArea As List(Of String) = New List(Of String)
         Dim rContent As RichTextBox = New RichTextBox
         dicArea = New Dictionary(Of String, ObjLog)
         If WebBrowser1.ReadyState = WebBrowserReadyState.Complete Then
@@ -91,6 +91,34 @@ Public Class frmMain
 
                     lblPc12Temp.Text = dicArea.Item("PC1_2")._temp & " C"
                     lblPC12Humid.Text = dicArea.Item("PC1_2")._humid & " %"
+
+                    ' Khu vực FUJI-NICHICON
+                    lblPd1FujiTemp.Text = dicArea.Item("FUJI")._temp & " C"
+                    lblPd1FujiHumid.Text = dicArea.Item("FUJI")._humid & " %"
+
+                    ' Khu vực SE-1
+                    lblPd1Se1Temp.Text = dicArea.Item("SE_1")._temp & " C"
+                    lblPd1Se1Humid.Text = dicArea.Item("SE_1")._humid & " %"
+
+                    ' Khu vực SE-2
+                    lblPd1Se2Temp.Text = dicArea.Item("SE_2")._temp & " C"
+                    lblPd1Se2Humid.Text = dicArea.Item("SE_2")._humid & " %"
+
+                    ' Khu vực SE-3
+                    lblPd1Se3Temp.Text = dicArea.Item("SE_3")._temp & " C"
+                    lblPd1Se3Humid.Text = dicArea.Item("SE_3")._humid & " %"
+
+                    ' Khu vực SE-4
+                    lblPd1Se4Temp.Text = dicArea.Item("SE_4")._temp & " C"
+                    lblPd1Se4Humid.Text = dicArea.Item("SE_4")._humid & " %"
+
+                    ' Khu vực SE-5
+                    lblPd1Se5Temp.Text = dicArea.Item("SE_5")._temp & " C"
+                    lblPd1Se5Humid.Text = dicArea.Item("SE_5")._humid & " %"
+
+                    ' Khu vực SE-6
+                    lblPd1Se6Temp.Text = dicArea.Item("SE_6")._temp & " C"
+                    lblPd1Se6Humid.Text = dicArea.Item("SE_6")._humid & " %"
 
                 Catch ex As Exception
                     MessageBox.Show("Bạn đã thay đổi thông tin trên website", "Liên hệ Quyết LCA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -300,8 +328,85 @@ Public Class frmMain
             flag(15) = False
         End If
         '---------------------------------------------------------------------------------------------------------------
+        lblPd1FujiTemp.ForeColor = If(dicArea.Item("FUJI")._temp >= setting._tempMin And dicArea.Item("FUJI")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1FujiHumid.ForeColor = If(dicArea.Item("FUJI")._humid >= setting._humidMin And dicArea.Item("FUJI")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1FujiTemp.ForeColor = Color.Blue And lblPd1FujiHumid.ForeColor = Color.Blue Then
+            PictureBox24.Image = Image.FromFile("OK.jpg")
+            flag(16) = True
+        Else
+            PictureBox24.Image = Image.FromFile("NG.jpg")
+            flag(16) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
+        lblPd1Se1Temp.ForeColor = If(dicArea.Item("SE_1")._temp >= setting._tempMin And dicArea.Item("SE_1")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Se1Humid.ForeColor = If(dicArea.Item("SE_1")._humid >= setting._humidMin And dicArea.Item("SE_1")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1Se1Temp.ForeColor = Color.Blue And lblPd1Se1Humid.ForeColor = Color.Blue Then
+            PictureBox18.Image = Image.FromFile("OK.jpg")
+            flag(17) = True
+        Else
+            PictureBox18.Image = Image.FromFile("NG.jpg")
+            flag(17) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
+        lblPd1Se2Temp.ForeColor = If(dicArea.Item("SE_2")._temp >= setting._tempMin And dicArea.Item("SE_2")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Se2Humid.ForeColor = If(dicArea.Item("SE_2")._humid >= setting._humidMin And dicArea.Item("SE_2")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1Se2Temp.ForeColor = Color.Blue And lblPd1Se2Humid.ForeColor = Color.Blue Then
+            PictureBox19.Image = Image.FromFile("OK.jpg")
+            flag(18) = True
+        Else
+            PictureBox19.Image = Image.FromFile("NG.jpg")
+            flag(18) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
+        lblPd1Se3Temp.ForeColor = If(dicArea.Item("SE_3")._temp >= setting._tempMin And dicArea.Item("SE_3")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Se3Humid.ForeColor = If(dicArea.Item("SE_3")._humid >= setting._humidMin And dicArea.Item("SE_3")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1Se3Temp.ForeColor = Color.Blue And lblPd1Se3Humid.ForeColor = Color.Blue Then
+            PictureBox20.Image = Image.FromFile("OK.jpg")
+            flag(19) = True
+        Else
+            PictureBox20.Image = Image.FromFile("NG.jpg")
+            flag(19) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
+        lblPd1Se4Temp.ForeColor = If(dicArea.Item("SE_4")._temp >= setting._tempMin And dicArea.Item("SE_4")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Se4Humid.ForeColor = If(dicArea.Item("SE_4")._humid >= setting._humidMin And dicArea.Item("SE_4")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1Se4Temp.ForeColor = Color.Blue And lblPd1Se4Humid.ForeColor = Color.Blue Then
+            PictureBox21.Image = Image.FromFile("OK.jpg")
+            flag(20) = True
+        Else
+            PictureBox21.Image = Image.FromFile("NG.jpg")
+            flag(20) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
+        lblPd1Se5Temp.ForeColor = If(dicArea.Item("SE_5")._temp >= setting._tempMin And dicArea.Item("SE_5")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Se5Humid.ForeColor = If(dicArea.Item("SE_5")._humid >= setting._humidMin And dicArea.Item("SE_5")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1Se5Temp.ForeColor = Color.Blue And lblPd1Se5Humid.ForeColor = Color.Blue Then
+            PictureBox22.Image = Image.FromFile("OK.jpg")
+            flag(21) = True
+        Else
+            PictureBox22.Image = Image.FromFile("NG.jpg")
+            flag(21) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
+        lblPd1Se6Temp.ForeColor = If(dicArea.Item("SE_6")._temp >= setting._tempMin And dicArea.Item("SE_6")._temp <= setting._tempMax, Color.Blue, Color.Red)
+        lblPd1Se6Humid.ForeColor = If(dicArea.Item("SE_6")._humid >= setting._humidMin And dicArea.Item("SE_6")._humid <= setting._humidMax, Color.Blue, Color.Red)
+
+        If lblPd1Se6Temp.ForeColor = Color.Blue And lblPd1Se6Humid.ForeColor = Color.Blue Then
+            PictureBox23.Image = Image.FromFile("OK.jpg")
+            flag(22) = True
+        Else
+            PictureBox23.Image = Image.FromFile("NG.jpg")
+            flag(22) = False
+        End If
+        '---------------------------------------------------------------------------------------------------------------
         'Label36.Text = alarm_again
-        If flag(1) = False Or flag(2) = False Or flag(3) = False Or flag(4) = False Or flag(5) = False Or flag(6) = False Or flag(7) = False Or flag(8) = False Or flag(9) = False Or flag(10) = False Or flag(11) = False Or flag(15) = False Then
+        If flag(1) = False Or flag(2) = False Or flag(3) = False Or flag(4) = False Or flag(5) = False Or flag(6) = False Or flag(7) = False Or flag(8) = False Or flag(9) = False Or flag(10) = False Or flag(11) = False Or flag(15) = False Or flag(16) = False Or flag(17) = False Or flag(18) = False Or flag(19) = False Or flag(20) = False Or flag(21) = False Or flag(22) = False Then
             Label35.ForeColor = Color.Red
             Label35.Text = "Alarm"
             Timer2.Enabled = True
@@ -386,6 +491,41 @@ Public Class frmMain
                 'End If
                 If flag(15) = False Then
                     Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblPc12.Text, lblPc12Temp.Text, lblPC12Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(16) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblFuji.Text, lblPd1FujiTemp.Text, lblPd1FujiHumid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(17) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblSe1.Text, lblPd1Se1Temp.Text, lblPd1Se1Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(18) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblSe2.Text, lblPd1Se2Temp.Text, lblPd1Se2Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(19) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblSe3.Text, lblPd1Se3Temp.Text, lblPd1Se3Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(20) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblSe4.Text, lblPd1Se4Temp.Text, lblPd1Se4Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(21) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblSe5.Text, lblPd1Se5Temp.Text, lblPd1Se5Humid.Text)
+                    lstObjLog.Add(objLog)
+                    no = no + 1
+                End If
+                If flag(22) = False Then
+                    Dim objLog = New ObjLog(no, Now.ToString("dd-MM-yyyy HH:mm:ss"), lblSe6.Text, lblPd1Se6Temp.Text, lblPd1Se6Humid.Text)
                     lstObjLog.Add(objLog)
                     no = no + 1
                 End If
@@ -508,8 +648,7 @@ Public Class frmMain
     End Sub
     Private Sub Daily_log()
         'Declare Ca
-        Dim ca As String
-        ca = If(Now.Hour >= 8 And Now.Hour <= 20, "HC", "D")
+        Dim ca As String = If(Now.Hour >= 8 And Now.Hour <= 20, "HC", "D")
 #Region "Create Report"
         Dim outFile As IO.StreamWriter
         '**********************************************************************************************************************
@@ -1016,7 +1155,9 @@ Public Class frmMain
         SystemSetting.ReadXML(Of SystemSetting)(setting, pathConfig)
         Timer1.Interval = setting._reloadWebInterval
         Timer4.Interval = setting._createLogInterval
-        Timer5.Start()
+        If setting._enableAlarmConnection Then
+            Timer5.Start()
+        End If
         tempRange = setting._tempMin & " C - " & setting._tempMax & " C"
         humidRange = setting._humidMin & "% - " & setting._humidMax & "%"
         listEmail = Common.FindEmail(pathEmail)
@@ -1102,36 +1243,50 @@ Public Class frmMain
         Dim stream As StreamWriter
         Dim pathLog As String = Environment.CurrentDirectory & "\Html\data.txt"
         stream = My.Computer.FileSystem.OpenTextFileWriter(pathLog, False)
-        stream.WriteLine("#1. MC standar, temp, humid, connection")
+        stream.WriteLine("#1. MC standar, temp, humid, connection warning")
         stream.WriteLine(flag(1) & "," & dicArea.Item("MC")._temp & "," & dicArea.Item("MC")._humid & "," & Common.WaringConnect(dicArea.Item("MC")._time, setting._connectionWarning))
-        stream.WriteLine("#2. PC standar, temp, humid, connection")
+        stream.WriteLine("#2. PC standar, temp, humid, connection warning")
         stream.WriteLine(flag(2) & "," & dicArea.Item("PC")._temp & "," & dicArea.Item("PC")._humid & "," & Common.WaringConnect(dicArea.Item("PC")._time, setting._connectionWarning))
-        stream.WriteLine("#3. PD1-SMT standar, temp, humid, connection")
+        stream.WriteLine("#3. PD1-SMT standar, temp, humid, connection warning")
         stream.WriteLine(flag(3) & "," & dicArea.Item("PD1_SMT")._temp & "," & dicArea.Item("PD1_SMT")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_SMT")._time, setting._connectionWarning))
-        stream.WriteLine("#4. MC2 standar, temp, humid, connection")
+        stream.WriteLine("#4. MC2 standar, temp, humid, connection warning")
         stream.WriteLine(flag(4) & "," & dicArea.Item("MC2")._temp & "," & dicArea.Item("MC2")._humid & "," & Common.WaringConnect(dicArea.Item("MC2")._time, setting._connectionWarning))
-        stream.WriteLine("#5. PC2 standar, temp, humid, connection")
+        stream.WriteLine("#5. PC2 standar, temp, humid, connection warning")
         stream.WriteLine(flag(5) & "," & dicArea.Item("PC2")._temp & "," & dicArea.Item("PC2")._humid & "," & Common.WaringConnect(dicArea.Item("PC2")._time, setting._connectionWarning))
-        stream.WriteLine("#6. PD2-SMT standar, temp, humid, connection")
+        stream.WriteLine("#6. PD2-SMT standar, temp, humid, connection warning")
         stream.WriteLine(flag(6) & "," & dicArea.Item("PD2_SMT")._temp & "," & dicArea.Item("PD2_SMT")._humid & "," & Common.WaringConnect(dicArea.Item("PD2_SMT")._time, setting._connectionWarning))
-        stream.WriteLine("#7. PD2-PU1-1 standar, temp, humid, connection")
+        stream.WriteLine("#7. PD2-PU1-1 standar, temp, humid, connection warning")
         stream.WriteLine(flag(7) & "," & dicArea.Item("PD2_PU1_1")._temp & "," & dicArea.Item("PD2_PU1_1")._humid & "," & Common.WaringConnect(dicArea.Item("PD2_PU1_1")._time, setting._connectionWarning))
-        stream.WriteLine("#8. PD2-PU1-2 standar, temp, humid, connection")
+        stream.WriteLine("#8. PD2-PU1-2 standar, temp, humid, connection warning")
         stream.WriteLine(flag(8) & "," & dicArea.Item("PD2_PU1_2")._temp & "," & dicArea.Item("PD2_PU1_2")._humid & "," & Common.WaringConnect(dicArea.Item("PD2_PU1_2")._time, setting._connectionWarning))
-        stream.WriteLine("#9. PD1-FAT-1 standar, temp, humid, connection")
+        stream.WriteLine("#9. PD1-FAT-1 standar, temp, humid, connection warning")
         stream.WriteLine(flag(9) & "," & dicArea.Item("PD1_FAT_1")._temp & "," & dicArea.Item("PD1_FAT_1")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_FAT_1")._time, setting._connectionWarning))
-        stream.WriteLine("#10. PD1-FAT-2 standar, temp, humid, connection")
+        stream.WriteLine("#10. PD1-FAT-2 standar, temp, humid, connection warning")
         stream.WriteLine(flag(10) & "," & dicArea.Item("PD1_FAT_2")._temp & "," & dicArea.Item("PD1_FAT_2")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_FAT_2")._time, setting._connectionWarning))
-        stream.WriteLine("#11. PD1-SPOT standar, temp, humid, connection")
+        stream.WriteLine("#11. PD1-SPOT standar, temp, humid, connection warning")
         stream.WriteLine(flag(11) & "," & dicArea.Item("PD1_SPOT WEDING")._temp & "," & dicArea.Item("PD1_SPOT WEDING")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_SPOT WEDING")._time, setting._connectionWarning))
-        stream.WriteLine("#12. PD1-PRINT-1 standar, temp, humid, connection")
+        stream.WriteLine("#12. PD1-PRINT-1 standar, temp, humid, connection warning")
         stream.WriteLine(flag(12) & "," & dicArea.Item("PD1_PRINT_1")._temp & "," & dicArea.Item("PD1_PRINT_1")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_PRINT_1")._time, setting._connectionWarning))
-        stream.WriteLine("#13. PD1-PRINT-2 standar, temp, humid, connection")
+        stream.WriteLine("#13. PD1-PRINT-2 standar, temp, humid, connection warning")
         stream.WriteLine(flag(13) & "," & dicArea.Item("PD1_PRINT_2")._temp & "," & dicArea.Item("PD1_PRINT_2")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_PRINT_2")._time, setting._connectionWarning))
-        stream.WriteLine("#14. PD1-PRINT-3 standar, temp, humid, connection")
+        stream.WriteLine("#14. PD1-PRINT-3 standar, temp, humid, connection warning")
         stream.WriteLine(flag(14) & "," & dicArea.Item("PD1_PRINT_3")._temp & "," & dicArea.Item("PD1_PRINT_3")._humid & "," & Common.WaringConnect(dicArea.Item("PD1_PRINT_3")._time, setting._connectionWarning))
-        stream.WriteLine("#15. PC1_2 standar, temp, humid, connection")
+        stream.WriteLine("#15. PC1_2 standar, temp, humid, connection warning")
         stream.WriteLine(flag(15) & "," & dicArea.Item("PC1_2")._temp & "," & dicArea.Item("PC1_2")._humid & "," & Common.WaringConnect(dicArea.Item("PC1_2")._time, setting._connectionWarning))
+        stream.WriteLine("#16. FUJI standar, temp, humid, connection warning")
+        stream.WriteLine(flag(16) & "," & dicArea.Item("FUJI")._temp & "," & dicArea.Item("FUJI")._humid & "," & Common.WaringConnect(dicArea.Item("FUJI")._time, setting._connectionWarning))
+        stream.WriteLine("#17. SE-1 standar, temp, humid, connection warning")
+        stream.WriteLine(flag(17) & "," & dicArea.Item("SE_1")._temp & "," & dicArea.Item("SE_1")._humid & "," & Common.WaringConnect(dicArea.Item("SE_1")._time, setting._connectionWarning))
+        stream.WriteLine("#18. SE-2 standar, temp, humid, connection warning")
+        stream.WriteLine(flag(18) & "," & dicArea.Item("SE_2")._temp & "," & dicArea.Item("SE_2")._humid & "," & Common.WaringConnect(dicArea.Item("SE_2")._time, setting._connectionWarning))
+        stream.WriteLine("#19. SE-3 standar, temp, humid, connection warning")
+        stream.WriteLine(flag(19) & "," & dicArea.Item("SE_3")._temp & "," & dicArea.Item("SE_3")._humid & "," & Common.WaringConnect(dicArea.Item("SE_3")._time, setting._connectionWarning))
+        stream.WriteLine("#20. SE-4 standar, temp, humid, connection warning")
+        stream.WriteLine(flag(20) & "," & dicArea.Item("SE_4")._temp & "," & dicArea.Item("SE_4")._humid & "," & Common.WaringConnect(dicArea.Item("SE_4")._time, setting._connectionWarning))
+        stream.WriteLine("#21. SE-5 standar, temp, humid, connection warning")
+        stream.WriteLine(flag(21) & "," & dicArea.Item("SE_5")._temp & "," & dicArea.Item("SE_5")._humid & "," & Common.WaringConnect(dicArea.Item("SE_5")._time, setting._connectionWarning))
+        stream.WriteLine("#22. SE-6 standar, temp, humid, connection warning")
+        stream.WriteLine(flag(22) & "," & dicArea.Item("SE_6")._temp & "," & dicArea.Item("SE_6")._humid & "," & Common.WaringConnect(dicArea.Item("SE_6")._time, setting._connectionWarning))
         stream.Close()
     End Sub
 

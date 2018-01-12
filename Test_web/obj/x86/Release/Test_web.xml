@@ -62,6 +62,26 @@ Test_web
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Test_web.My.Resources.Resources.Area">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources.Area1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources.Area2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Test_web.My.Resources.Resources.Area3">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Test_web.My.Resources.Resources.Capture">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -103,11 +123,6 @@ Test_web
  <param name="filePath"></param>
  <param name="keyword">Từ khóa</param>
  <returns></returns>
-</member>
-<member name="M:Test_web.frmMain.SaveState(System.Int32)">
- <summary>
- Lưu lại giá trị của cột No trong CSV file, STT của file name CSV
- </summary>
 </member>
 </members>
 </doc>

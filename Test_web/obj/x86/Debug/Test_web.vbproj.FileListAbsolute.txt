@@ -177,3 +177,20 @@ D:\Quyet\TempAndHumid\Test_web_ver 1006 - Copy\Test_web\obj\x86\Debug\Test_web.e
 D:\Quyet\TempAndHumid\Test_web_ver 1006 - Copy\Test_web\obj\x86\Debug\Test_web.xml
 D:\Quyet\TempAndHumid\Test_web_ver 1006 - Copy\Test_web\obj\x86\Debug\Test_web.pdb
 D:\Quyet\TempAndHumid\Test_web_ver 1006 - Copy\Test_web\obj\x86\Debug\Test_web.frmAbout.resources
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Interop.WMPLib.dll
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\AxInterop.WMPLib.dll
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.vbproj.ResolveComReference.cache
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.exe
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.xml
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.pdb
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\bin\Debug\Test_web.exe
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\bin\Debug\Test_web.pdb
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\bin\Debug\Test_web.xml
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\bin\Debug\Interop.WMPLib.dll
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\bin\Debug\AxInterop.WMPLib.dll
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.frmAbout.resources
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.frmMain.resources
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.frmMaster.resources
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.Resources.resources
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.vbproj.GenerateResource.Cache
+D:\Quyet\TempAndHumid\TEMP_HUMID\Test_web\obj\x86\Debug\Test_web.vbprojResolveAssemblyReference.cache
